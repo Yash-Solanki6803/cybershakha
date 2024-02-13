@@ -1,18 +1,30 @@
-const getData = async () => {
-  const res = await fetch(`http://localhost:3000/api/user`, {
-    cache: "no-store",
-  });
+"use client";
 
-  if (!res.ok) {
-    throw new Error("Failed");
-  }
-  return res.json();
-};
+import { useState, useEffect } from "react";
 
-const AdminLink = async () => {
-  //   const user = await getUser();
-  const data = await getData();
-  return <div> {data?.email} is Admin</div>;
+const AdminLink = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/user");
+
+        if (response.ok) {
+          const userData = await response.json();
+          setUser(userData);
+        } else {
+          console.error("Failed to fetch user:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  return 1;
 };
 
 export default AdminLink;

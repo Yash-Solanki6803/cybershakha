@@ -1,6 +1,5 @@
 import Link from "next/link";
 import AuthLinks from "../authLinks/AuthLinks";
-import AdminLink from "../adminLink/AdminLink";
 
 const Navbar = () => {
   return (
@@ -13,7 +12,6 @@ const Navbar = () => {
           <Link href="/about">About</Link>
         </li>
         <li>
-          <AdminLink />
           <AuthLinks />
         </li>
       </ul>

@@ -1,14 +1,32 @@
 "use client";
 import Link from "next/link";
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
-// import AdminLink from "../adminLink/AdminLink";
 
 export default function AuthLinks() {
   //   const [open, setOpen] = useState(false);
 
   const { status, data } = useSession();
-  // const session = await getAuthSession();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/user");
+
+        if (response.ok) {
+          const userData = await response.json();
+          setUser(userData);
+        } else {
+          console.error("Failed to fetch user:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   return (
     <>
@@ -16,8 +34,8 @@ export default function AuthLinks() {
         <Link href="/login">Login</Link>
       ) : (
         <>
-          {/* {checkAdmin() && <Link href="/writeup">Write Up</Link>} */}
-
+          {user?.isAdmin && <Link href="/writeup">Write Up</Link>}
+          {/* {console.log(user?.isAdmin)} */}
           <Link href="/write">Write</Link>
           <span onClick={signOut}>Logout</span>
         </>
