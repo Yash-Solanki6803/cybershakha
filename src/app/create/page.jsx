@@ -25,6 +25,7 @@ const WritePage = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const storage = getStorage(app);
@@ -139,7 +140,9 @@ const WritePage = () => {
           placeholder="Tell your story..."
         />
       </div>
-      <button onClick={handleSubmit}>Publish</button>
+      <button disabled={loading} onClick={handleSubmit}>
+        Publish
+      </button>
     </div>
   );
 };
