@@ -34,9 +34,9 @@ export default function AuthLinks() {
         <Link href="/login">Login</Link>
       ) : (
         <>
-          {user?.isAdmin && <Link href="/writeup">Write Up</Link>}
+          {user?.isAdmin && <Link href="/write">Write Up</Link>}
           {/* {console.log(user?.isAdmin)} */}
-          <Link href="/write">Write</Link>
+          <Link href="/create">Create</Link>
           <span onClick={signOut}>Logout</span>
         </>
       )}

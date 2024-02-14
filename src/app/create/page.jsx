@@ -25,7 +25,6 @@ const WritePage = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const storage = getStorage(app);
@@ -41,15 +40,12 @@ const WritePage = () => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
-          if (progress === 100) setLoading(false);
-          else setLoading(true);
           switch (snapshot.state) {
             case "paused":
               console.log("Upload is paused");
               break;
             case "running":
               console.log("Upload is running");
-
               break;
           }
         },
@@ -82,7 +78,7 @@ const WritePage = () => {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
-    const res = await fetch("/api/writeups", {
+    const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
@@ -95,7 +91,7 @@ const WritePage = () => {
 
     if (res.status === 200) {
       const data = await res.json();
-      router.push(`/writeups/${data.slug}`);
+      router.push(`/posts/${data.slug}`);
     }
   };
 
@@ -136,16 +132,14 @@ const WritePage = () => {
             </button>
           </div>
         )}
-        <textarea
-          className="text-black"
-          placeholder="Tell your story..."
+        <ReactQuill
+          theme="bubble"
           value={value}
-          onChange={(e) => setValue(e.target.value)}
-        ></textarea>
+          onChange={setValue}
+          placeholder="Tell your story..."
+        />
       </div>
-      <button disabled={loading} onClick={handleSubmit}>
-        Publish
-      </button>
+      <button onClick={handleSubmit}>Publish</button>
     </div>
   );
 };

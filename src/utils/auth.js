@@ -13,12 +13,4 @@ export const authOptions = {
   ],
 };
 
-// export async function fetchIsAdmin(email) {
-//   const user = await prisma.user.findUnique({
-//     where: { email },
-//   });
-//   console.log("fetch function", user?.isAdmin);
-//   return user?.isAdmin || false;
-// }
-
 export const getAuthSession = () => getServerSession(authOptions);
