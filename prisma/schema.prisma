@@ -47,6 +47,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   Post          Post[]
+  WriteUp       WriteUp[]  // Added relation to WriteUp model
   Comment       Comment[]
 }
 
@@ -64,9 +65,25 @@ model Category {
   title String
   img   String?
   Posts Post[]
+  WriteUps WriteUp[]  // Added relation to WriteUp model
 }
 
 model Post {
+  id        String    @id @default(cuid()) @map("_id")
+  createdAt DateTime  @default(now())
+  slug      String    @unique
+  title     String
+  desc      String
+  img       String?
+  views     Int       @default(0)
+  catSlug   String
+  cat       Category  @relation(fields: [catSlug], references: [slug])
+  userEmail String
+  user      User      @relation(fields: [userEmail], references: [email])
+  comments  Comment[]
+}
+
+model WriteUp {
   id        String    @id @default(cuid()) @map("_id")
   createdAt DateTime  @default(now())
   slug      String    @unique
@@ -89,4 +106,6 @@ model Comment {
   user      User     @relation(fields: [userEmail], references: [email])
   postSlug  String
   post      Post     @relation(fields: [postSlug], references: [slug])
+  writeUpSlug  String   // Added relation to WriteUp model
+  writeUp      WriteUp   @relation(fields: [writeUpSlug], references: [slug])
 }
