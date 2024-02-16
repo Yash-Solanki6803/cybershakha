@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Navlink from "../navLink/NavLink";
 import { useState, useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
 
@@ -31,13 +32,18 @@ export default function AuthLinks() {
   return (
     <>
       {status === "unauthenticated" ? (
-        <Link href="/login">Login</Link>
+        <Navlink href="/login">Login</Navlink>
       ) : (
         <>
-          {user?.isAdmin && <Link href="/write">Write Up</Link>}
+          {user?.isAdmin && <Navlink href="/write">Write Up</Navlink>}
           {/* {console.log(user?.isAdmin)} */}
-          <Link href="/create">Create</Link>
-          <span onClick={signOut}>Logout</span>
+          <Navlink href="/create">Create</Navlink>
+          <span
+            className="bg-brand_primary_dark px-5 py-3 rounded-[3rem] text-base cursor-pointer"
+            onClick={signOut}
+          >
+            Logout
+          </span>
         </>
       )}
       {/* <div   onClick={() => setOpen(!open)}>
@@ -47,14 +53,14 @@ export default function AuthLinks() {
       </div> */}
       {/* {open && ( */}
       {/* <div >
-        <Link href="/">Homepage</Link>
-        <Link href="/">About</Link>
-        <Link href="/">Contact</Link>
+        <Navlink href="/">Homepage</Navlink>
+        <Navlink href="/">About</Navlink>
+        <Navlink href="/">Contact</Navlink>
         {status === "unauthenticated" ? (
-          <Link href="/login">Login</Link>
+          <Navlink href="/login">Login</Navlink>
         ) : (
           <>
-            <Link href="/write">Write</Link>
+            <Navlink href="/write">Write</Navlink>
             <span>Logout</span>
           </>
         )}
