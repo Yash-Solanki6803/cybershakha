@@ -51,13 +51,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none;
+  .customShadow {
+    box-shadow: 0 0 160px 160px rgb(62 213 221);
   }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  .customShadowDark {
+    box-shadow: 0 0 400px 400px rgb(62 213 221);
   }
 }

@@ -20,9 +20,6 @@ module.exports = {
         brand_black: "#171717",
         glass: "rgba(255, 255, 255, 0.13)",
       },
-      fontFamily: {
-        titillium: ["Titillium Web", "sans-serif"],
-      },
     },
   },
   plugins: [],
