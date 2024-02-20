@@ -19,6 +19,7 @@ module.exports = {
         brand_primary_dark: "#0A767B",
         brand_black: "#171717",
         glass: "rgba(255, 255, 255, 0.13)",
+        dark_glass: "rgba(0, 0, 0, 0.23)",
       },
     },
   },

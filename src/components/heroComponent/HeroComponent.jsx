@@ -3,7 +3,7 @@ import Button from "../button/Button";
 
 function HeroComponent() {
   return (
-    <section id="hero" className="border flex gap-4 h-screen -mt-36">
+    <section id="hero" className=" flex gap-4 h-screen">
       <div className=" flex flex-auto flex-col w-3/5 justify-around items-start">
         <div>
           <h1 className=" text-8xl font-bold">
@@ -19,11 +19,11 @@ function HeroComponent() {
         </div>
         <Button>Contact us!</Button>
       </div>
-      <div className=" flex flex-auto w-2/5 justify-end">
+      <div className=" flex flex-auto w-2/5 justify-end relative">
         <Image
           src="/images/lock.png"
           alt="Picture of a lock"
-          className="w-full object-contain"
+          className="w-full object-contain hover:customDropShadow transition-all duration-500 hover:translate-x-6 hover:translate-y-6 hover:scale-105"
           width={400}
           height={400}
         />

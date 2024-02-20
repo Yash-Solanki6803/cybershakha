@@ -5,11 +5,11 @@ import VectorComponent from "../vector/Vector";
 
 function AboutSection() {
   return (
-    <section id="about" className="border flex gap-4 h-screen relative">
-      <div className="border flex flex-auto flex-col w-[45%] justify-start items-start p-24 relative">
-        <Highlighter size={3} className="top-1/2 left-1/2 -translate-x-1/2" />
+    <section id="about" className=" flex gap-4 h-screen relative">
+      <div className="flex flex-auto flex-col w-[45%] justify-start items-start py-24 relative">
+        <Highlighter size={3} className="top-1/3 left-1/2 -translate-x-1/2" />
         <div
-          className=" h-3/5 w-3/5 absolute flex items-center rounded-lg shadow-lg hover:shadow-brand_primary_dark  hover:scale-105 transition-all duration-700
+          className=" h-3/5 w-3/5 absolute flex items-center rounded-lg shadow-lg hover:shadow-black  hover:scale-105 transition-all duration-700
         "
         >
           <Image
@@ -20,7 +20,7 @@ function AboutSection() {
             height={400}
           />
         </div>
-        <div className=" h-3/5 w-3/5 absolute bottom-24 right-24 rounded-lg shadow-lg hover:shadow-brand_primary_dark hover:scale-105 transition-all duration-700">
+        <div className=" h-3/5 w-3/5 absolute bottom-24 right-24 rounded-lg shadow-lg hover:shadow-black   hover:scale-105 transition-all duration-700">
           <Image
             src="/images/typing.png"
             alt="Picture of a matrix"
@@ -30,7 +30,7 @@ function AboutSection() {
           />
         </div>
       </div>
-      <div className="border flex flex-col flex-auto w-[55%] justify-start items-start p-24">
+      <div className=" flex flex-col flex-auto w-[55%] justify-start items-start p-24">
         <div className="h-3/4 w-3/4">
           <h4 className="text-brand_primary text-xl">About us</h4>
           <h2 className="text-7xl font-semibold">

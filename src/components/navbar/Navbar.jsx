@@ -1,11 +1,14 @@
-import Link from "next/link";
 import AuthLinks from "../authLinks/AuthLinks";
 import Navlink from "../navLink/NavLink";
 import classNames from "classnames";
 
 const Navbar = () => {
   return (
-    <nav className={classNames(" flex items-center justify-between py-5 h-36")}>
+    <nav
+      className={classNames(
+        " flex items-center justify-between px-32 py-5 h-36 z-50 fixed w-full -ml-32 bg-dark_glass"
+      )}
+    >
       {/* Company Name */}
       <div className="text-4xl font-semibold ">
         Cyber <span className="text-brand_primary">Shakha</span>
