@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Button from "../button/Button";
-import Link from "next/link";
 
 function HeroComponent() {
   return (
-    <section id="hero" className=" flex gap-4 h-[600px]">
-      <div className=" flex flex-auto flex-col w-3/5 justify-between items-start">
+    <section id="hero" className="border flex gap-4 h-screen -mt-36">
+      <div className=" flex flex-auto flex-col w-3/5 justify-around items-start">
         <div>
           <h1 className=" text-8xl font-bold">
             Empowering You in the Digital Age

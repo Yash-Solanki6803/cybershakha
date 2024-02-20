@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 const Navbar = () => {
   return (
-    <nav className={classNames("flex items-center justify-between py-5")}>
+    <nav className={classNames(" flex items-center justify-between py-5 h-36")}>
       {/* Company Name */}
       <div className="text-4xl font-semibold ">
         Cyber <span className="text-brand_primary">Shakha</span>
