@@ -6,7 +6,7 @@ function HeroComponent() {
     <section id="hero" className=" flex gap-4 h-screen">
       <div className=" flex flex-auto flex-col w-3/5 justify-around items-start">
         <div>
-          <h1 className=" text-8xl font-bold">
+          <h1 className="mt-9 text-8xl font-bold">
             Empowering You in the Digital Age
           </h1>
           <p className="pt-9 md:text-2xl">

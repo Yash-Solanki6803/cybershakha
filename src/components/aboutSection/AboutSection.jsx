@@ -6,7 +6,7 @@ import VectorComponent from "../vector/Vector";
 function AboutSection() {
   return (
     <section id="about" className=" flex gap-4 h-screen relative">
-      <div className="flex flex-auto flex-col w-[45%] justify-start items-start py-24 relative">
+      <div className="animate-pulse flex flex-auto flex-col w-[45%] justify-start items-start py-24 relative">
         <Highlighter size={3} className="top-1/3 left-1/2 -translate-x-1/2" />
         <div
           className=" h-3/5 w-3/5 absolute flex items-center rounded-lg shadow-lg hover:shadow-black  hover:scale-105 transition-all duration-700
@@ -31,7 +31,7 @@ function AboutSection() {
         </div>
       </div>
       <div className=" flex flex-col flex-auto w-[55%] justify-start items-start p-24">
-        <div className="h-3/4 w-3/4">
+        <div className="h-3/4 w-full">
           <h4 className="text-brand_primary text-xl">About us</h4>
           <h2 className="text-7xl font-semibold">
             Discover Our Journey Protecting Your Digital World with Expertise

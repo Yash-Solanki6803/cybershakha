@@ -1,0 +1,14 @@
+export { default as icon_customize } from "./icon_eye.png";
+export { default as icon_eye } from "./icon_eye.png";
+export { default as icon_fb } from "./icon_fb.png";
+export { default as icon_instagram } from "./icon_instagram.png";
+export { default as icon_location } from "./icon_location.png";
+export { default as icon_lock } from "./icon_lock.png";
+export { default as icon_mail } from "./icon_mail.png";
+export { default as icon_phone } from "./icon_phone.png";
+export { default as icon_service } from "./icon_service.png";
+export { default as icon_threat } from "./icon_threat.png";
+export { default as icon_time } from "./icon_time.png";
+export { default as icon_training } from "./icon_training.png";
+export { default as icon_twitter } from "./icon_twitter.png";
+export { default as icon_youtube } from "./icon_youtube.png";
