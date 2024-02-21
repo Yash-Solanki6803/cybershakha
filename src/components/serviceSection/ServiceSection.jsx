@@ -20,7 +20,7 @@ function ServiceSection() {
         </p>
       </div>
       <div className="h-1/2 flex w-full items-center justify-around relative">
-        <div className="absolute text-brand_primary top-0 right-20 hover:text-white cursor-pointer transition-all">
+        <div className="absolute text-brand_primary top-0 right-20 hover:text-white cursor-pointer transition-all animate-bounce">
           <Link href="/about">View More &gt;&gt;&gt;</Link>
         </div>
         <ServiceCard

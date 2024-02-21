@@ -1,11 +1,11 @@
 import React from "react";
 
-function footer() {
+function Footer() {
   return (
-    <section id="footer" className="border flex gap-4 h-[50vh]">
-      footer
+    <section id="Footer" className="border flex gap-4 h-[50vh]">
+      Footer
     </section>
   );
 }
 
-export default footer;
+export default Footer;

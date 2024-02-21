@@ -4,7 +4,7 @@ function Highlighter({ size = 1, className = "" }) {
   return (
     <div
       className={classNames(
-        "rounded-full bg-brand_primary absolute -z-20 opacity-[0.1] ",
+        "rounded-full bg-brand_primary absolute -z-20 opacity-[0.1] customPulse",
         {
           "w-[150px] h-[150px] customShadow": size === 1,
           "w-[300px] h-[300px] customShadow": size === 2,

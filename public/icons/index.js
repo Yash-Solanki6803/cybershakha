@@ -1,4 +1,4 @@
-export { default as icon_customize } from "./icon_eye.png";
+export { default as icon_customize } from "./icon_customize.png";
 export { default as icon_eye } from "./icon_eye.png";
 export { default as icon_fb } from "./icon_fb.png";
 export { default as icon_instagram } from "./icon_instagram.png";

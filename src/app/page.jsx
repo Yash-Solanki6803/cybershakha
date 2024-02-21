@@ -4,6 +4,7 @@ import ServiceSection from "@/components/serviceSection/ServiceSection";
 import BlogSection from "@/components/blogSection/BlogSection";
 import GoalSection from "@/components/goalSection/GoalSection";
 import TestimonialSection from "@/components/testimonialSection/TestimonialSection";
+import Footer from "@/components/footer/Footer";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col    h-full">
@@ -13,6 +14,7 @@ export default function Home() {
       <BlogSection />
       <GoalSection />
       <TestimonialSection />
+      <Footer />
     </main>
   );
 }
