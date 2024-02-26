@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav
       className={classNames(
-        " flex items-center justify-between px-32 py-5 h-36 z-50 fixed w-full -ml-32 bg-dark_glass"
+        " flex items-center justify-between px-32 py-5 h-36 z-50 fixed w-full -ml-32 backdrop-blur-md"
       )}
     >
       {/* Company Name */}

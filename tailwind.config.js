@@ -21,8 +21,13 @@ module.exports = {
         brand_black: "#171717",
         glass: "rgba(255, 255, 255, 0.13)",
         dark_glass: "rgba(0, 0, 0, 0.23)",
+        black_light: "#232323",
+      },
+      cursor: {
+        default: "url(/icons/cursor.png),default",
+        pointer: "url(/icons/cursor_pointer.png),pointer",
       },
     },
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [],
 };
