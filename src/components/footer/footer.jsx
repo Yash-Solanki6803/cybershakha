@@ -9,6 +9,7 @@ import {
   icon_location,
   icon_phone,
 } from "@/../public/icons";
+import ContactForm from "../contactForm/ContactForm";
 
 const social = {
   instagram: {
@@ -37,8 +38,8 @@ const contact = {
 
 function Footer() {
   return (
-    <section id="footer" className="border flex gap-4 h-[50vh] mt-40 py-10">
-      <div className="w-2/5 h-full border flex">
+    <section id="footer" className=" flex gap-4 h-[50vh] mt-40 py-10">
+      <div className="w-2/5 h-full  flex">
         <div className="w-3/5 h-full  flex flex-col">
           <div className="text-4xl font-semibold ">
             Cyber <span className="text-brand_primary">Shakha</span>
@@ -49,7 +50,7 @@ function Footer() {
           <nav className="w-full mt-10 flex gap-4">
             <Link
               href={social.instagram.link}
-              className="border rounded-lg p-2 w-10 h-10 flex items-center justify-center hover:border-brand_primary transition-all duration-300 cursor-pointer"
+              className=" rounded-lg p-2 w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
                 src={social.instagram.img}
@@ -60,7 +61,7 @@ function Footer() {
             </Link>
             <Link
               href={social.facebook.link}
-              className="border rounded-lg p-2 w-10 h-10 flex items-center justify-center hover:border-brand_primary transition-all duration-300 cursor-pointer"
+              className=" rounded-lg p-2 w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
                 src={social.facebook.img}
@@ -71,7 +72,7 @@ function Footer() {
             </Link>
             <Link
               href={social.twitter.link}
-              className="border rounded-lg p-2  w-10 h-10 flex items-center justify-center hover:border-brand_primary transition-all duration-300 cursor-pointer"
+              className=" rounded-lg p-2  w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
                 src={social.twitter.img}
@@ -82,7 +83,7 @@ function Footer() {
             </Link>
             <Link
               href={social.youtube.link}
-              className="border rounded-lg p-2  w-10 h-10  flex items-center justify-center hover:border-brand_primary transition-all duration-300 cursor-pointer"
+              className=" rounded-lg p-2  w-10 h-10  flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
                 src={social.youtube.img}
@@ -95,7 +96,7 @@ function Footer() {
         </div>
 
         {/* quick links */}
-        <div className="w-2/5 h-full border">
+        <div className="w-2/5 h-full ">
           <h4 className="text-xl">Quick Links</h4>
           <nav className="flex flex-col gap-4 mt-10">
             <Link
@@ -125,8 +126,8 @@ function Footer() {
           </nav>
         </div>
       </div>
-      <div className="w-3/5 h-full border flex">
-        <div className="w-2/5 border">
+      <div className="w-3/5 h-full  flex">
+        <div className="w-2/5 ">
           <h4 className="text-xl">Quick Links</h4>
           <article className="flex flex-col gap-4 mt-10">
             <div className="flex gap-4">
@@ -148,7 +149,9 @@ function Footer() {
             </div>
           </article>
         </div>
-        <div className="w-3/5 border"></div>
+        <div className="w-3/5 ">
+          <ContactForm />
+        </div>
       </div>
     </section>
   );
