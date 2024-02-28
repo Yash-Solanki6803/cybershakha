@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Button from "../button/Button";
-import Highlighter from "../highlighter/Highlighter";
-import VectorComponent from "../vector/Vector";
+import Button from "../../components/button/Button";
+import Highlighter from "../../components/highlighter/Highlighter";
+import VectorComponent from "../../components/vector/Vector";
 
 function AboutSection() {
   return (

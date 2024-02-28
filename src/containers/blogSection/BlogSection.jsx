@@ -1,7 +1,7 @@
 import Image from "next/image";
-import VectorComponent from "../vector/Vector";
-import Highlighter from "../highlighter/Highlighter";
-import CategoryCard from "../categoryCard/CategoryCard";
+import VectorComponent from "../../components/vector/Vector";
+import Highlighter from "../../components/highlighter/Highlighter";
+import CategoryCard from "../../components/categoryCard/CategoryCard";
 import {
   icon_training,
   icon_threat,
@@ -60,6 +60,8 @@ function BlogSection() {
         className="top-0 -left-[500px] transform rotate-180"
       />
       <Highlighter size={3} className="top-0 -left-[500px]" />
+      <VectorComponent size={5} className="bottom-0 -right-[500px] transform" />
+      <Highlighter size={3} className="bottom-0 -right-[500px]" />
     </section>
   );
 }

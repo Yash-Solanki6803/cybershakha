@@ -1,6 +1,6 @@
 import React from "react";
-import Testimonial from "../testimonial/Testimonial";
-import VectorComponent from "../vector/Vector";
+import Testimonial from "../../components/testimonial/Testimonial";
+import VectorComponent from "../../components/vector/Vector";
 import { Image1, Image2, Image3, Image4 } from "@/../public/clients";
 
 function TestimonialSection() {

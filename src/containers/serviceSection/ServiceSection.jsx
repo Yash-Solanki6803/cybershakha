@@ -1,4 +1,4 @@
-import ServiceCard from "../serviceCard/ServiceCard";
+import ServiceCard from "../../components/serviceCard/ServiceCard";
 import { icon_eye, icon_lock, icon_time } from "../../../public/icons";
 import Link from "next/link";
 

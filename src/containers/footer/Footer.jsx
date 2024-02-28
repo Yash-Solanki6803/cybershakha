@@ -9,8 +9,8 @@ import {
   icon_location,
   icon_phone,
 } from "@/../public/icons";
-import VectorComponent from "../vector/Vector";
-import ContactForm from "../contactForm/ContactForm";
+import VectorComponent from "../../components/vector/Vector";
+import ContactForm from "../../components/contactForm/ContactForm";
 
 const social = {
   instagram: {

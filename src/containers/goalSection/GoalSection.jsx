@@ -1,8 +1,8 @@
-import Carousel from "../carousel/Carousel";
-
+import Carousel from "../../components/carousel/Carousel";
+import VectorComponent from "@/components/vector/Vector";
 function GoalSection() {
   return (
-    <section id="goal" className=" flex flex-col h-screen mt-24">
+    <section id="goal" className=" flex flex-col h-screen mt-24 relative">
       <div className=" h-1/2 py-10 flex justify-center">
         <div className=" h-full w-1/2 text-center">
           <h4 className="text-brand_primary text-xl">Our Goals</h4>

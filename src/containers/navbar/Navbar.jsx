@@ -1,5 +1,5 @@
-import AuthLinks from "../authLinks/AuthLinks";
-import Navlink from "../navLink/NavLink";
+import AuthLinks from "../../components/authLinks/AuthLinks";
+import Navlink from "../../components/navLink/NavLink";
 import classNames from "classnames";
 
 const Navbar = () => {
