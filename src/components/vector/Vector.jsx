@@ -2,12 +2,7 @@ import Image from "next/image";
 import Vector from "../../../public/assets/Vector.svg";
 import classNames from "classnames";
 
-const VectorComponent = ({
-  rotation = 0,
-  alignment = "top-left",
-  size = 1,
-  className = "",
-}) => {
+const VectorComponent = ({ size = 1, className = "" }) => {
   return (
     <div
       className={classNames(

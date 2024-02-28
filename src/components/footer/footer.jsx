@@ -9,6 +9,7 @@ import {
   icon_location,
   icon_phone,
 } from "@/../public/icons";
+import VectorComponent from "../vector/Vector";
 import ContactForm from "../contactForm/ContactForm";
 
 const social = {
@@ -38,7 +39,10 @@ const contact = {
 
 function Footer() {
   return (
-    <section id="footer" className=" flex gap-4 h-[50vh] mt-40 py-10">
+    <section
+      id="footer"
+      className=" flex gap-4 h-[50vh] mt-40 py-10 relative overflow-hidden"
+    >
       <div className="w-2/5 h-full  flex">
         <div className="w-3/5 h-full  flex flex-col">
           <div className="text-4xl font-semibold ">
@@ -153,6 +157,10 @@ function Footer() {
           <ContactForm />
         </div>
       </div>
+      <VectorComponent
+        size={4}
+        className="rotate-90 left-1/3 -bottom-[300px]"
+      />
     </section>
   );
 }

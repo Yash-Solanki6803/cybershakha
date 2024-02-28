@@ -1,5 +1,6 @@
 import React from "react";
 import Testimonial from "../testimonial/Testimonial";
+import VectorComponent from "../vector/Vector";
 import { Image1, Image2, Image3, Image4 } from "@/../public/clients";
 
 function TestimonialSection() {
@@ -46,6 +47,7 @@ function TestimonialSection() {
           rating={5}
         />
       </div>
+      <VectorComponent size={4} className="-left-[200px] rotate-180" />
     </section>
   );
 }
