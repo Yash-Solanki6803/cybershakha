@@ -14,7 +14,7 @@ export default function Home() {
       <BlogSection />
       <GoalSection />
       <TestimonialSection />
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

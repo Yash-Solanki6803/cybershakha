@@ -3,6 +3,7 @@ import AuthProvider from "@/providers/AuthProvider";
 import Navbar from "@/containers/navbar/Navbar";
 import classNames from "classnames";
 import HeroDecors from "@/components/heroDecors/heroDecors";
+import Footer from "@/containers/footer/Footer";
 import { Titillium_Web } from "next/font/google";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
 
           {children}
           {/* Add footer here */}
+          <Footer />
         </AuthProvider>
       </body>
     </html>

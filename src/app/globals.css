@@ -35,6 +35,16 @@
   background: #0a767b;
 }
 
+.quill > .ql-container > .ql-editor.ql-blank::before {
+  font-size: 24px;
+  color: white;
+}
+
+.quill > .ql-container > .ql-editor {
+  color: white;
+  font-size: 24px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

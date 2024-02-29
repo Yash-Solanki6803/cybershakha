@@ -13,7 +13,6 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
-import ReactQuill from "react-quill";
 
 const WritePage = () => {
   const { status } = useSession();
@@ -100,50 +99,55 @@ const WritePage = () => {
   };
 
   return (
-    <div>
+    <div className="pt-40">
       <input
         type="text"
         placeholder="Title"
-        className="text-black"
+        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white"
+        maxLength={100}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <select onChange={(e) => setCatSlug(e.target.value)}>
-        <option value="style">style</option>
-        <option value="fashion">fashion</option>
-        <option value="food">food</option>
-        <option value="culture">culture</option>
-        <option value="travel">travel</option>
-        <option value="coding">coding</option>
-      </select>
-      <div>
-        <button onClick={() => setOpen(!open)}>
-          {/* <Image src="/plus.png" alt="" width={16} height={16} /> */}
-          Add
+      <div className="my-10 flex justify-between">
+        <select
+          onChange={(e) => setCatSlug(e.target.value)}
+          className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+        >
+          <option defaultValue>Select a category</option>
+          <option value="style">style</option>
+          <option value="fashion">fashion</option>
+          <option value="food">food</option>
+          <option value="culture">culture</option>
+          <option value="travel">travel</option>
+          <option value="coding">coding</option>
+        </select>
+        <input
+          type="file"
+          id="image"
+          onChange={(e) => setFile(e.target.files[0])}
+          style={{ display: "none" }}
+        />
+        <button>
+          <label
+            htmlFor="image"
+            className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+          >
+            {/* <Image src="/image.png" alt="" width={16} height={16} /> */}
+            Add Image
+          </label>
         </button>
-        {open && (
-          <div>
-            <input
-              type="file"
-              id="image"
-              onChange={(e) => setFile(e.target.files[0])}
-              style={{ display: "none" }}
-            />
-            <button>
-              <label htmlFor="image">
-                {/* <Image src="/image.png" alt="" width={16} height={16} /> */}
-                Image
-              </label>
-            </button>
-          </div>
-        )}
-        <textarea
-          className="text-black"
-          placeholder="Tell your story..."
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        ></textarea>
       </div>
-      <button disabled={loading} onClick={handleSubmit}>
+
+      <textarea
+        placeholder="Tell your story..."
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="bg-transparent w-full h-[50vh] placeholder:text-white placeholder:text-xl text-xl cursor-text p-4 focus:outline-none "
+      ></textarea>
+      <button
+        disabled={loading}
+        onClick={handleSubmit}
+        className="bg-brand_primary_dark py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary"
+      >
         Publish
       </button>
     </div>
