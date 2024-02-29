@@ -3,7 +3,7 @@ import Button from "../../components/button/Button";
 
 function HeroComponent() {
   return (
-    <section id="hero" className=" flex gap-4 h-screen">
+    <section id="hero" className="flex gap-4 h-screen">
       <div className=" flex flex-auto flex-col w-3/5 justify-around items-start">
         <div>
           <h1 className="mt-9 text-8xl font-bold">
