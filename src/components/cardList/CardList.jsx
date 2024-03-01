@@ -24,21 +24,21 @@ const getData = async (page, cat) => {
 const CardList = async ({ page, cat }) => {
   const { posts, count } = await getData(page, cat);
 
-  const POST_PER_PAGE = 4;
+  const POST_PER_PAGE = 2;
 
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
   return (
-    <div className="relative h-full">
+    <div className="relative h-full pr-10 border-r ">
       {cat ? (
         <h1 className="text-4xl font-semibold my-5">Category: {cat}</h1>
       ) : (
         <h1 className="text-4xl font-semibold my-5">Recent Posts</h1>
       )}
-      <div className="">
-        {posts?.map((item) => (
-          <Card item={item} key={item._id} />
+      <div>
+        {posts?.map((item, index) => (
+          <Card isInverted={index % 2 != 0} item={item} key={item._id} />
         ))}
       </div>
       <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />

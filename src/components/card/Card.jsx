@@ -1,22 +1,31 @@
 import Image from "next/image";
 // import styles from "./card.module.css";
 import Link from "next/link";
+import classNames from "classnames";
 
-const Card = ({ key, item }) => {
+const Card = ({ key, item, isInverted = false }) => {
   return (
-    <div key={key} className="flex gap-10 my-10">
+    <div
+      key={key}
+      className={classNames(" flex gap-10 my-10", {
+        "flex-row-reverse": isInverted,
+        "flex-row": !isInverted,
+      })}
+    >
       {item.img && (
         <div>
-          <Image
-            className="w-[350px] aspect-video object-cover rounded-tl-[15%] rounded-br-[15%] shadow-md hover:shadow-white transition-all duration-150"
-            src={item.img}
-            alt=""
-            width={100}
-            height={70}
-          />
+          <Link href={`/posts/${item.slug}`}>
+            <Image
+              className="w-[550px] aspect-video object-cover rounded-tl-[15%] rounded-br-[15%] shadow-md hover:shadow-white transition-all duration-150"
+              src={item.img}
+              alt=""
+              width={100}
+              height={70}
+            />
+          </Link>
         </div>
       )}
-      <div className="flex flex-col justify-between pb-3">
+      <div className=" flex flex-col justify-between pb-3 w-full">
         <article>
           <div>
             <span>{item.createdAt.substring(0, 10)} - </span>

@@ -54,11 +54,13 @@ const BlogPage = ({ searchParams }) => {
           ))}
         </div>
       </div>
-      <div className="w-full flex mt-10">
-        <div className="w-2/3 min-h-[50vh]">
+      <div className="w-full flex mt-10 gap-24">
+        <div className=" w-2/3 min-h-[50vh] ">
           <CardList page={page} cat={cat} />
         </div>
-        <div className="w-1/3"> {/* <Menu /> */}</div>
+        <div className=" w-1/3 min-h-[50vh] ">
+          <Menu />
+        </div>
       </div>
     </div>
   );
