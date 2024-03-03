@@ -2,14 +2,6 @@ import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
-  //   const query = {
-  //     take: POST_PER_PAGE,
-  //     skip: POST_PER_PAGE * (page - 1),
-  //     where: {
-  //       ...(cat && { catSlug: cat }),
-  //     },
-  //   };
-
   try {
     const topPosts = await prisma.post.findMany({
       take: 4,
