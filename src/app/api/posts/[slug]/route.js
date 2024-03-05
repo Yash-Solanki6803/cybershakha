@@ -1,5 +1,8 @@
+import { getAuthSession } from "@/utils/auth";
 import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
+import { isAdmin } from "@/utils/isAdmin";
+import { isAuthor } from "@/utils/isAuthor";
 
 // GET SINGLE POST
 export const GET = async (req, { params }) => {
@@ -21,46 +24,34 @@ export const GET = async (req, { params }) => {
   }
 };
 
+//delete a post
 export const DELETE = async (req, { params }) => {
   const { slug } = params;
+  const session = await getAuthSession();
+
+  if (!session) {
+    return new NextResponse(
+      JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
+    );
+  }
 
   // Fetch information about the current user from /api/user
-  const userResponse = await fetch("/api/user");
-  const user = await userResponse.json();
-
   try {
     // Check if the user is an admin or the author of the post
-    const canDelete =
-      user.isAdmin ||
-      (
-        await prisma.post.findUnique({
-          where: { slug },
-          select: { userId: true },
-        })
-      )?.userId === user.id;
-
+    const canDelete = true;
     if (canDelete) {
-      // User has permission to delete the post
       await prisma.post.delete({
         where: { slug },
       });
 
       return new NextResponse(
         JSON.stringify(
-          { message: "Post deleted successfully" },
+          { message: "Postasd deleted successfully" },
           { status: 200 }
-        )
-      );
-    } else {
-      return new NextResponse(
-        JSON.stringify(
-          { message: "Unauthorized to delete this post" },
-          { status: 403 }
         )
       );
     }
   } catch (err) {
-    console.error(err);
     return new NextResponse(
       JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
     );

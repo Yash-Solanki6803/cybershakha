@@ -12,3 +12,5 @@ export { default as icon_time } from "./icon_time.png";
 export { default as icon_training } from "./icon_training.png";
 export { default as icon_twitter } from "./icon_twitter.png";
 export { default as icon_youtube } from "./icon_youtube.png";
+export { default as icon_delete } from "./delete.svg";
+export { default as icon_edit } from "./edit.svg";
