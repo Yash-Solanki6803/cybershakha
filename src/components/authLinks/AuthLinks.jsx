@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import Navlink from "../navLink/NavLink";
 import { useState, useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
@@ -36,7 +35,6 @@ export default function AuthLinks() {
       ) : (
         <>
           {user?.isAdmin && <Navlink href="/write">Write Up</Navlink>}
-          {/* {console.log(user?.isAdmin)} */}
           <Navlink href="/create">Create</Navlink>
           <span
             className="bg-brand_primary_dark px-5 py-3 rounded-[3rem] text-base cursor-pointer"
