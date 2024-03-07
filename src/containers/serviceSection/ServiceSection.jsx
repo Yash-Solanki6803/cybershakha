@@ -4,10 +4,7 @@ import Link from "next/link";
 
 function ServiceSection() {
   return (
-    <section
-      id="service"
-      className=" flex flex-col h-screen items-center border"
-    >
+    <section id="service" className=" flex flex-col h-screen items-center ">
       <div className=" h-1/2 flex flex-col justify-center items-center sm:w-1/2">
         <h4 className="text-brand_primary text-xl">Our Service</h4>
         <h2 className="sm:text-7xl text-5xl font-semibold text-center">
@@ -22,8 +19,8 @@ function ServiceSection() {
           legacy.
         </p>
       </div>
-      <div className="h-1/2 flex w-full items-center justify-around relative">
-        <div className="absolute text-brand_primary top-0 right-20 hover:text-white cursor-pointer transition-all animate-bounce">
+      <div className="h-1/2 flex sm:flex-row flex-col  sm:gap-0 gap-4 w-full items-center justify-around relative">
+        <div className="absolute text-brand_primary sm:top-0 -top-10 sm:right-20 right-0 hover:text-white cursor-pointer transition-all animate-bounce">
           <Link href="/about">View More &gt;&gt;&gt;</Link>
         </div>
         <ServiceCard
