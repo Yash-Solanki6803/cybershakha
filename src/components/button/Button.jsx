@@ -8,7 +8,6 @@ function Button({
   onClick = () => {},
   href = "#",
 }) {
-  console.log(href !== "");
   return (
     <Link
       className={classNames(

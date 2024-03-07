@@ -15,7 +15,7 @@ const Navlink = ({ href, children }) => {
     >
       <Link
         href={href}
-        className="border-transparent border-b-2 transition-all hover:border-white"
+        className="border-transparent border-b-2 transition-all hover:border-white block h-full"
       >
         {children}
       </Link>

@@ -37,7 +37,7 @@ export default function AuthLinks() {
           {user?.isAdmin && <Navlink href="/write">Write Up</Navlink>}
           <Navlink href="/create">Create</Navlink>
           <span
-            className="bg-brand_primary_dark px-5 py-3 rounded-[3rem] text-base cursor-pointer"
+            className="bg-brand_primary_dark px-5 py-3 rounded-[3rem] text-base cursor-pointer mt-4 block lg:mt-0"
             onClick={signOut}
           >
             Logout
