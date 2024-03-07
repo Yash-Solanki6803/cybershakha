@@ -4,10 +4,13 @@ import Link from "next/link";
 
 function ServiceSection() {
   return (
-    <section id="service" className=" flex flex-col h-screen items-center">
-      <div className=" h-1/2 flex flex-col justify-center items-center w-1/2">
+    <section
+      id="service"
+      className=" flex flex-col h-screen items-center border"
+    >
+      <div className=" h-1/2 flex flex-col justify-center items-center sm:w-1/2">
         <h4 className="text-brand_primary text-xl">Our Service</h4>
-        <h2 className="text-7xl font-semibold text-center">
+        <h2 className="sm:text-7xl text-5xl font-semibold text-center">
           Protecting Your Digital Assets Expertly
         </h2>
         <p className="mt-10 text-xl text-center ">
