@@ -7,7 +7,7 @@ function HeroComponent() {
       id="hero"
       className="flex sm:flex-row flex-col gap-4 h-screen py-40"
     >
-      <div className="sm:border flex flex-auto flex-col sm:w-3/5  justify-between sm:items-start sm:text-left text-center">
+      <div className=" flex flex-auto flex-col sm:w-3/5  justify-between sm:items-start sm:text-left text-center">
         <div className="mt-10">
           <h1 className="lg:text-8xl text-5xl font-bold">
             Empowering You in the Digital Age
