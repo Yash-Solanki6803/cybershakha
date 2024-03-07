@@ -34,7 +34,7 @@ function BlogSection() {
           <h3 className="underline text-4xl font-semibold text-center mt-14">
             Explore blog categories
           </h3>
-          <div className=" h-full grid grid-cols-2 sm:px-14 px-10 sm:gap-0 gap-4">
+          <div className=" h-full sm:grid sm:grid-cols-2 flex flex-col items-center sm:px-14 px-10 sm:gap-0 gap-4">
             <CategoryCard
               src={icon_customize}
               title="Customized Security Solutions"

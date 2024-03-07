@@ -19,7 +19,7 @@ function ServiceSection() {
           legacy.
         </p>
       </div>
-      <div className="h-1/2 flex sm:flex-row flex-col  sm:gap-0 gap-4 w-full items-center justify-around relative">
+      <div className="h-1/2 flex sm:flex-row flex-col  sm:gap-0 gap-4 w-full items-center justify-around relative mt-10">
         <div className="absolute text-brand_primary sm:top-0 -top-10 sm:right-20 right-0 hover:text-white cursor-pointer transition-all animate-bounce">
           <Link href="/about">View More &gt;&gt;&gt;</Link>
         </div>
