@@ -7,10 +7,10 @@ function AboutSection() {
   return (
     <section
       id="about"
-      className="border flex sm:flex-row flex-col-reverse sm:gap-4 sm:h-screen h-[70vh] relative py-14"
+      className=" flex sm:flex-row flex-col-reverse sm:gap-4 sm:h-screen h-[70vh] relative py-14"
     >
       {/* images */}
-      <div className="border animate-pulse hidden sm:flex sm:flex-auto flex-col sm:w-[45%] justify-start items-start py-24 relative">
+      <div className=" animate-pulse hidden sm:flex sm:flex-auto flex-col sm:w-[45%] justify-start items-start py-24 relative">
         <Highlighter size={3} className="top-1/3 left-1/2 -translate-x-1/2" />
         <div
           className=" h-3/5 w-3/5 absolute flex items-center rounded-lg shadow-lg hover:shadow-black  hover:scale-105 transition-all duration-700
