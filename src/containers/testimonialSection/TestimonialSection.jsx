@@ -9,9 +9,9 @@ function TestimonialSection() {
       id="testimonial"
       className=" flex flex-col gap-4 items-center min-h-screen"
     >
-      <div className=" sm:w-1/2 text-center pt-10">
+      <div className=" md:w-1/2 text-center pt-10">
         <h4 className="text-brand_primary text-xl">Testimonials</h4>
-        <h2 className="sm:text-7xl text-5xl font-semibold">
+        <h2 className="md:text-7xl text-5xl font-semibold">
           See what others people are saying
         </h2>
         <p className="mt-4">
@@ -21,7 +21,7 @@ function TestimonialSection() {
           the trusted choice for individuals and businesses alike.
         </p>
       </div>
-      <div className="mt-10 w-full sm:grid sm:grid-cols-2 flex flex-col items-center place-items-center gap-10">
+      <div className="mt-10 w-full md:grid md:grid-cols-2 flex flex-col items-center place-items-center gap-10">
         <Testimonial
           image={Image1}
           name="Miss Sammy Feeney"

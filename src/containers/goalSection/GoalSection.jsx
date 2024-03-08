@@ -1,18 +1,14 @@
 import Carousel from "../../components/carousel/Carousel";
-import VectorComponent from "@/components/vector/Vector";
 function GoalSection() {
   return (
-    <section
-      id="goal"
-      className=" flex flex-col h-screen mt-24 relative sm:pt-0 pt-24"
-    >
-      <div className=" sm:h-1/2 py-10 flex justify-center">
-        <div className=" h-full sm:w-1/2 text-center">
+    <section id="goal" className=" flex flex-col min-h-[80vh] mt-24 relative">
+      <div className=" md:h-1/2 py-10 flex justify-center">
+        <div className=" h-full md:w-1/2 text-center">
           <h4 className="text-brand_primary text-xl">Our Goals</h4>
-          <h2 className="sm:text-7xl text-5xl font-semibold">
+          <h2 className="md:text-7xl text-5xl font-semibold">
             Securing Your Digital World Together
           </h2>
-          <p className="mt-10 sm:text-xl">
+          <p className="mt-10 md:text-xl">
             At CyberShakha, we are not just a consultancy; we are your partners
             in digital security. Our dedication to excellence, personalized
             approach, and a commitment to staying at the forefront of
@@ -22,7 +18,7 @@ function GoalSection() {
         </div>
       </div>
 
-      <div className="sm:px-24 sm:py-10">
+      <div className="md:px-24 md:py-10">
         <Carousel />
       </div>
     </section>
