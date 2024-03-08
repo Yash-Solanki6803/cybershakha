@@ -41,17 +41,17 @@ function Footer() {
   return (
     <section
       id="footer"
-      className=" flex gap-4 h-[50vh] mt-40 py-10 relative overflow-hidden"
+      className=" flex sm:flex-row flex-col gap-4 min-h-[50vh] mt-40 py-10 relative overflow-hidden"
     >
-      <div className="w-2/5 h-full  flex">
-        <div className="w-3/5 h-full  flex flex-col">
+      <div className=" sm:w-2/5  flex sm:flex-row flex-col">
+        <div className=" sm:w-3/5 h-full  flex flex-col">
           <div className="text-4xl font-semibold ">
             Cyber <span className="text-brand_primary">Shakha</span>
           </div>
-          <p className="mt-2">Your trusted ally in the digital realm.</p>
+          <p className="mt-2 w-3/4">Your trusted ally in the digital realm.</p>
 
           {/* social media links */}
-          <nav className="w-full mt-10 flex gap-4">
+          <nav className="w-full sm:mt-10 mt-4 flex gap-4">
             <Link
               href={social.instagram.link}
               className=" rounded-lg p-2 w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
@@ -100,7 +100,7 @@ function Footer() {
         </div>
 
         {/* quick links */}
-        <div className="w-2/5 h-full ">
+        <div className="w-2/5 sm:mt-0 mt-4 h-full ">
           <h4 className="text-xl">Quick Links</h4>
           <nav className="flex flex-col gap-4 mt-10">
             <Link
@@ -130,9 +130,9 @@ function Footer() {
           </nav>
         </div>
       </div>
-      <div className="w-3/5 h-full  flex">
-        <div className="w-2/5 ">
-          <h4 className="text-xl">Quick Links</h4>
+      <div className=" sm:w-3/5 h-full  flex sm:flex-row flex-col">
+        <div className="sm:w-2/5 sm:mt-0 mt-10">
+          <h4 className="text-xl">Contact us</h4>
           <article className="flex flex-col gap-4 mt-10">
             <div className="flex gap-4">
               <Image src={icon_mail} alt="mail" width={20} height={20} />
@@ -153,7 +153,7 @@ function Footer() {
             </div>
           </article>
         </div>
-        <div className="w-3/5 ">
+        <div className="sm:w-3/5 sm:mt-0 mt-10">
           <ContactForm />
         </div>
       </div>

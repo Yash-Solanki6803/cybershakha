@@ -7,12 +7,12 @@ function TestimonialSection() {
   return (
     <section
       id="testimonial"
-      className=" flex flex-col gap-4 items-center h-screen"
+      className=" flex flex-col gap-4 items-center min-h-screen"
     >
-      <div className=" w-1/2 text-center pt-10">
-        <h4 className="text-brand_primary text-xl">Our Goals</h4>
-        <h2 className="text-7xl font-semibold">
-          Securing Your Digital World Together
+      <div className=" sm:w-1/2 text-center pt-10">
+        <h4 className="text-brand_primary text-xl">Testimonials</h4>
+        <h2 className="sm:text-7xl text-5xl font-semibold">
+          See what others people are saying
         </h2>
         <p className="mt-4">
           At CyberShakha, we are not just a consultancy; we are your partners in
@@ -21,7 +21,7 @@ function TestimonialSection() {
           the trusted choice for individuals and businesses alike.
         </p>
       </div>
-      <div className="mt-10 w-full grid grid-cols-2 items-center place-items-center gap-10">
+      <div className="mt-10 w-full sm:grid sm:grid-cols-2 flex flex-col items-center place-items-center gap-10">
         <Testimonial
           image={Image1}
           name="Miss Sammy Feeney"
