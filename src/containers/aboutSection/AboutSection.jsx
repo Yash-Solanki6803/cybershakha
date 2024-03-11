@@ -24,7 +24,7 @@ function AboutSection() {
             height={400}
           />
         </div>
-        <div className=" h-3/5 w-3/5 absolute bottom-24 lg:right-10 xl:right-24 rounded-lg shadow-lg hover:shadow-black   hover:scale-105 transition-all duration-700">
+        <div className=" h-3/5 w-3/5 absolute bottom-24 xl:right-10 rounded-lg shadow-lg hover:shadow-black   hover:scale-105 transition-all duration-700">
           <Image
             src="/images/typing.png"
             alt="Picture of a matrix"
@@ -35,10 +35,10 @@ function AboutSection() {
         </div>
       </div>
       {/* text */}
-      <div className=" flex flex-col flex-auto lg:w-1/2 xl:w-[55%] lg:justify-start justify-around lg:items-start xl:p-24 lg:px-10 ">
+      <div className=" flex flex-col flex-auto lg:w-1/2 xl:w-[55%] lg:justify-start justify-around lg:items-start xl:px-14 lg:px-10 ">
         <div className=" lg:h-3/4 w-full">
           <h4 className="text-brand_primary text-xl">About us</h4>
-          <h2 className="xl:text-7xl text-5xl font-semibold">
+          <h2 className="xl:text-6xl text-5xl font-semibold">
             Discover Our Journey Protecting Your Digital World with Expertise
             and Care
           </h2>

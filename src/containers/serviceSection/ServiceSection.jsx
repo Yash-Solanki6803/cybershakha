@@ -5,7 +5,7 @@ import Link from "next/link";
 function ServiceSection() {
   return (
     <section id="service" className=" flex flex-col h-screen items-center ">
-      <div className=" h-1/2 flex flex-col justify-center items-center xl:w-1/2 lg:w-3/4">
+      <div className=" h-1/2 flex flex-col justify-center items-center  lg:w-3/4">
         <h4 className="text-brand_primary text-xl">Our Service</h4>
         <h2 className="lg:text-7xl text-5xl font-semibold text-center">
           Protecting Your Digital Assets Expertly

@@ -13,7 +13,7 @@ function BlogSection() {
   return (
     <section
       id="blog"
-      className="mt-24 flex lg:flex-row flex-col lg:gap-10 gap-32 min-h-screen relative "
+      className="mt-24 flex lg:flex-row flex-col xl:gap-14 lg:gap-10 gap-32 min-h-screen relative "
     >
       <div className=" xl:w-[45%] lg:w-2/5 ">
         <Image
@@ -34,7 +34,7 @@ function BlogSection() {
           <h3 className="underline text-4xl font-semibold text-center mt-14">
             Explore blog categories
           </h3>
-          <div className=" h-full md:grid md:grid-cols-2 flex flex-col items-center lg:px-0 md:px-14 px-10 xl:gap-0 gap-4">
+          <div className=" h-full md:grid md:grid-cols-2 flex flex-col items-center lg:px-0 md:px-14 px-10  gap-4">
             <CategoryCard
               src={icon_customize}
               title="Customized Security Solutions"

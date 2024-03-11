@@ -9,7 +9,7 @@ function TestimonialSection() {
       id="testimonial"
       className=" flex flex-col gap-4 items-center min-h-screen"
     >
-      <div className=" xl:w-1/2 lg:w-2/3 text-center pt-10">
+      <div className="lg:w-2/3 text-center pt-10">
         <h4 className="text-brand_primary text-xl">Testimonials</h4>
         <h2 className="xl:text-7xl text-5xl font-semibold">
           See what others people are saying
