@@ -41,18 +41,18 @@ function Footer() {
   return (
     <section
       id="footer"
-      className=" flex md:flex-row flex-col gap-4 min-h-[50vh] mt-20 py-10 relative overflow-hidden"
+      className=" flex lg:flex-row flex-col gap-4 min-h-[50vh] mt-20 py-10 relative overflow-hidden"
     >
       {/* social and quick links */}
-      <div className=" md:w-2/5  flex sm:flex-row sm:justify-between flex-col">
-        <div className=" md:w-3/5 h-full  flex  flex-col">
+      <div className=" lg:w-2/5  flex sm:flex-row sm:justify-between flex-col">
+        <div className=" lg:w-3/5 h-full  flex  flex-col">
           <div className="text-4xl font-semibold ">
             Cyber <span className="text-brand_primary">Shakha</span>
           </div>
           <p className="mt-2 w-3/4">Your trusted ally in the digital realm.</p>
 
           {/* social media links */}
-          <nav className="w-full md:mt-10 mt-4 flex gap-4">
+          <nav className="w-full lg:mt-10 mt-4 flex gap-4">
             <Link
               href={social.instagram.link}
               className=" rounded-lg p-2 w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
@@ -133,8 +133,8 @@ function Footer() {
       </div>
 
       {/* contact section */}
-      <div className=" md:w-3/5 h-full  flex md:flex-row flex-col">
-        <div className="md:w-2/5 md:mt-0 mt-10 flex sm:justify-between sm:flex-row flex-col">
+      <div className=" lg:w-3/5 h-full  flex lg:flex-row flex-col">
+        <div className="lg:w-2/5 lg:mt-0 mt-10 flex sm:justify-between sm:flex-row flex-col">
           <h4 className=" text-xl">Contact us</h4>
           <article className=" flex flex-col gap-4 sm:mt-0 mt-10">
             <div className="flex sm:flex-row-reverse gap-4">
@@ -156,7 +156,7 @@ function Footer() {
             </div>
           </article>
         </div>
-        <div className="md:w-3/5 md:mt-0 mt-10">
+        <div className="lg:w-3/5 lg:mt-0 mt-10">
           <ContactForm />
         </div>
       </div>

@@ -13,9 +13,9 @@ function BlogSection() {
   return (
     <section
       id="blog"
-      className="mt-24 flex md:flex-row flex-col gap-32 min-h-screen relative "
+      className="mt-24 flex lg:flex-row flex-col gap-32 min-h-screen relative "
     >
-      <div className=" md:w-[45%]">
+      <div className=" lg:w-[45%]">
         <Image
           className="object-cover w-full rounded-tr-[300px] rounded-bl-[100px] hover:shadow-2xl hover:shadow-slate-600 transition-all duration-300"
           src="/images/person_working.png"
@@ -23,10 +23,10 @@ function BlogSection() {
           height={500}
         />
       </div>
-      <div className=" md:w-[55%]">
-        <div className=" h-[30%] flex flex-col md:items-start items-center">
+      <div className=" lg:w-[55%]">
+        <div className=" h-[30%] flex flex-col lg:items-start items-center">
           <h4 className="text-brand_primary text-xl">FEATURE POINT</h4>
-          <h2 className="mt-10 text-5xl font-semibold md:text-left text-center">
+          <h2 className="mt-10 text-5xl font-semibold lg:text-left text-center">
             Insights, Analysis, and Cybersecurity Wisdom:
           </h2>
         </div>
@@ -34,7 +34,7 @@ function BlogSection() {
           <h3 className="underline text-4xl font-semibold text-center mt-14">
             Explore blog categories
           </h3>
-          <div className=" h-full md:grid md:grid-cols-2 flex flex-col items-center md:px-14 px-10 md:gap-0 gap-4">
+          <div className=" h-full md:grid md:grid-cols-2 flex flex-col items-center md:px-14 px-10 lg:gap-0 gap-4">
             <CategoryCard
               src={icon_customize}
               title="Customized Security Solutions"
