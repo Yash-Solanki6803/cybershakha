@@ -7,7 +7,7 @@ function Testimonial({
   text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet saepe provident nobis, porro optio vero perferendis nostrum velit aliquam inventore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, optio.",
 }) {
   return (
-    <div className=" flex flex-col gap-2  rounded-lg sm:h-[250px] sm:w-3/4 p-4 bg-black_light">
+    <div className=" flex flex-col gap-2 lg:w-full  rounded-lg sm:h-[250px] sm:w-3/4 p-4 bg-black_light">
       <div className="h-1/2 ">
         <p>{text}</p>
       </div>

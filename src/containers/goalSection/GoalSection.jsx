@@ -3,9 +3,9 @@ function GoalSection() {
   return (
     <section id="goal" className=" flex flex-col min-h-[80vh] mt-24 relative">
       <div className=" md:h-1/2 py-10 flex justify-center">
-        <div className=" h-full lg:w-1/2 text-center">
+        <div className=" h-full xl:w-1/2 lg:w-2/3 text-center">
           <h4 className="text-brand_primary text-xl">Our Goals</h4>
-          <h2 className="lg:text-7xl text-5xl font-semibold">
+          <h2 className="xl:text-7xl text-5xl font-semibold">
             Securing Your Digital World Together
           </h2>
           <p className="mt-10 lg:text-xl">

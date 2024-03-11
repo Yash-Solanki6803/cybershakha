@@ -41,21 +41,21 @@ function Footer() {
   return (
     <section
       id="footer"
-      className=" flex lg:flex-row flex-col gap-4 min-h-[50vh] mt-20 py-10 relative overflow-hidden"
+      className=" flex xl:flex-row flex-col gap-4 min-h-[50vh] mt-20 py-10 relative overflow-hidden"
     >
       {/* social and quick links */}
-      <div className=" lg:w-2/5  flex sm:flex-row sm:justify-between flex-col">
-        <div className=" lg:w-3/5 h-full  flex  flex-col">
+      <div className=" xl:w-2/5  flex sm:flex-row sm:justify-between flex-col">
+        <div className=" xl:w-3/5 h-full  flex  flex-col">
           <div className="text-4xl font-semibold ">
             Cyber <span className="text-brand_primary">Shakha</span>
           </div>
           <p className="mt-2 w-3/4">Your trusted ally in the digital realm.</p>
 
           {/* social media links */}
-          <nav className="w-full lg:mt-10 mt-4 flex gap-4">
+          <nav className="w-full xl:mt-10 mt-4 flex gap-4">
             <Link
               href={social.instagram.link}
-              className=" rounded-lg p-2 w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
+              className=" rounded-xl p-2 w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
                 src={social.instagram.img}
@@ -66,7 +66,7 @@ function Footer() {
             </Link>
             <Link
               href={social.facebook.link}
-              className=" rounded-lg p-2 w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
+              className=" rounded-xl p-2 w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
                 src={social.facebook.img}
@@ -77,7 +77,7 @@ function Footer() {
             </Link>
             <Link
               href={social.twitter.link}
-              className=" rounded-lg p-2  w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
+              className=" rounded-xl p-2  w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
                 src={social.twitter.img}
@@ -88,7 +88,7 @@ function Footer() {
             </Link>
             <Link
               href={social.youtube.link}
-              className=" rounded-lg p-2  w-10 h-10  flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
+              className=" rounded-xl p-2  w-10 h-10  flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
                 src={social.youtube.img}
@@ -133,8 +133,8 @@ function Footer() {
       </div>
 
       {/* contact section */}
-      <div className=" lg:w-3/5 h-full  flex lg:flex-row flex-col">
-        <div className="lg:w-2/5 lg:mt-0 mt-10 flex sm:justify-between sm:flex-row flex-col">
+      <div className=" xl:w-3/5 h-full  flex xl:flex-row flex-col">
+        <div className="xl:w-2/5 xl:mt-0 mt-10 flex sm:justify-between sm:flex-row flex-col">
           <h4 className=" text-xl">Contact us</h4>
           <article className=" flex flex-col gap-4 sm:mt-0 mt-10">
             <div className="flex sm:flex-row-reverse gap-4">
@@ -156,7 +156,7 @@ function Footer() {
             </div>
           </article>
         </div>
-        <div className="lg:w-3/5 lg:mt-0 mt-10">
+        <div className="xl:w-3/5 xl:mt-0 mt-10">
           <ContactForm />
         </div>
       </div>
