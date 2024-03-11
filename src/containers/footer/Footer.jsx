@@ -44,9 +44,9 @@ function Footer() {
       className=" flex 2xl:flex-row flex-col gap-4 min-h-[50vh] mt-20 py-10 relative overflow-hidden"
     >
       {/* social and quick links */}
-      <div className=" 2xl:w-2/5  flex sm:flex-row sm:justify-between flex-col">
+      <div className="  2xl:w-2/5  flex sm:flex-row sm:justify-between flex-col">
         <div className=" 2xl:w-3/5 h-full  flex  flex-col">
-          <div className="text-42xl font-semibold ">
+          <div className="text-4xl font-semibold ">
             Cyber <span className="text-brand_primary">Shakha</span>
           </div>
           <p className="mt-2 w-3/4">Your trusted ally in the digital realm.</p>
@@ -101,7 +101,7 @@ function Footer() {
         </div>
 
         {/* quick links */}
-        <div className=" w-2/5 sm:mt-0  mt-8 h-full sm:text-right">
+        <div className=" w-2/5 sm:mt-0  mt-8 h-full 2xl:text-left sm:text-right">
           <h4 className="text-2xl">Quick Links</h4>
           <nav className="flex flex-col gap-4 mt-10">
             <Link
@@ -133,15 +133,15 @@ function Footer() {
       </div>
 
       {/* contact section */}
-      <div className=" 2xl:w-3/5 h-full  flex 2xl:flex-row flex-col">
-        <div className="2xl:w-2/5 2xl:mt-0 mt-10 flex sm:justify-between sm:flex-row flex-col">
+      <div className="  2xl:w-3/5 h-full  flex 2xl:flex-row flex-col">
+        <div className=" 2xl:w-2/5 2xl:mt-0 mt-10 flex sm:justify-between 2xl:justify-start 2xl:flex-col sm:flex-row flex-col">
           <h4 className=" text-2xl">Contact us</h4>
-          <article className=" flex flex-col gap-4 sm:mt-0 mt-10">
-            <div className="flex sm:flex-row-reverse gap-4">
+          <article className=" flex flex-col gap-4 2xl:mt-10 sm:mt-0 mt-10">
+            <div className="flex 2xl:flex-row sm:flex-row-reverse gap-4">
               <Image src={icon_mail} alt="mail" width={20} height={20} />
               <p>{contact.mail}</p>
             </div>
-            <div className="flex sm:flex-row-reverse gap-4">
+            <div className="flex  2xl:flex-row sm:flex-row-reverse gap-4">
               <Image
                 src={icon_location}
                 alt="location"
@@ -150,7 +150,7 @@ function Footer() {
               />
               <p>{contact.location}</p>
             </div>
-            <div className="flex sm:flex-row-reverse gap-4">
+            <div className="flex  2xl:flex-row sm:flex-row-reverse gap-4">
               <Image src={icon_phone} alt="phone" width={20} height={20} />
               <p>{contact.phone}</p>
             </div>
