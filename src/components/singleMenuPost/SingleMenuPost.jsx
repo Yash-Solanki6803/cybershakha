@@ -5,7 +5,7 @@ function SingleMenuPost() {
     <Link className=" my-4 py-1 block" href="#">
       <div className="">
         <span className="text-sm px-4 py-1 rounded-md bg-gray-700">Yassh</span>
-        <h3 className="mt-2 font-semibold xl:text-lg">
+        <h3 className="mt-2 font-semibold 2xl:text-lg">
           Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum
           dolor, sit amet consectetur adipisicing elit. U
         </h3>

@@ -10,12 +10,12 @@ const BlogPage = ({ searchParams }) => {
   const { cat } = searchParams;
   return (
     <div className="pt-40 w-full">
-      <div className="lg:border min-h-[60vh] w-full flex lg:flex-row flex-col sm:pb-10 lg:gap-10 border-b">
+      <div className=" min-h-[60vh] w-full flex lg:flex-row flex-col sm:pb-10 lg:gap-10 border-b">
         <div className=" lg:h-full lg:w-1/2 lg:pr-20 lg:py-10">
-          <h1 className="lg:text-6xl md:text-8xl sm:text-6xl text-5xl md:text-left text-center font-bold">
+          <h1 className="2xl:text-8xl lg:text-6xl md:text-8xl sm:text-6xl text-5xl md:text-left text-center font-bold">
             Insights, Analysis, and Cybersecurity Wisdom
           </h1>
-          <p className="text-lg mt-10 md:text-left text-center">
+          <p className="2xl:text-3xl text-lg mt-10 md:text-left text-center">
             Explore the CyberShakha Blog for Expert Guidance on Navigating the
             Digital Landscape
           </p>
@@ -34,7 +34,7 @@ const BlogPage = ({ searchParams }) => {
           </h3>
           <Link
             href="/"
-            className="mt-10 bg-brand_primary_dark px-16 py-4 rounded-lg hover:bg-transparent hover:text-brand_primary  -transparent transition-all duration-300 ease-in-out hover:-brand_primary"
+            className="mt-10 bg-brand_primary_dark px-16 py-4 rounded-lg hover:bg-transparent hover:text-brand_primary border  border-transparent transition-all duration-300 ease-in-out hover:border-brand_primary"
           >
             Read More
           </Link>
@@ -42,10 +42,10 @@ const BlogPage = ({ searchParams }) => {
       </div>
       <div className="mt-10 flex flex-col">
         <h2 className="text-5xl">Popular Categories</h2>
-        <div className=" flex flex-wrap justify-between gap-4 mt-10">
+        <div className=" flex flex-wrap justify-between xl:gap-0 gap-4 mt-10">
           {data.categories.map((category) => (
             <Link
-              className="border border-transparent bg-brand_primary_dark w-44 py-4 px-8 rounded-lg hover:bg-transparent hover:border-brand_primary hover:text-brand_primary transition-all duration-300 ease-in-out cursor-pointer"
+              className="border text-center border-transparent bg-brand_primary_dark w-44 py-4 px-8 rounded-lg hover:bg-transparent hover:border-brand_primary hover:text-brand_primary transition-all duration-300 ease-in-out cursor-pointer"
               key={category.id}
               href="/"
             >
@@ -54,7 +54,7 @@ const BlogPage = ({ searchParams }) => {
           ))}
         </div>
       </div>
-      <div className=" w-full flex lg:flex-row flex-col mt-10 xl:gap-24 lg:gap-10">
+      <div className=" w-full flex lg:flex-row flex-col mt-10 lg:gap-10">
         <div className=" lg:w-2/3 min-h-[50vh] ">
           <CardList page={page} cat={cat} />
         </div>
