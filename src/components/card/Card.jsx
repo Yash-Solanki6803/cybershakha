@@ -9,9 +9,9 @@ const Card = ({ key, item, isInverted = false }) => {
   return (
     <div
       key={key}
-      className={classNames(" flex gap-10 my-10", {
-        "flex-row-reverse": isInverted,
-        "flex-row": !isInverted,
+      className={classNames(" flex flex-col  gap-10 my-10", {
+        "sm:flex-row-reverse": isInverted,
+        "sm:flex-row": !isInverted,
       })}
     >
       {item.img && (

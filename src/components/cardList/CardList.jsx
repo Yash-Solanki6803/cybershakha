@@ -24,13 +24,13 @@ const getData = async (page, cat) => {
 const CardList = async ({ page, cat }) => {
   const { posts, count } = await getData(page, cat);
 
-  const POST_PER_PAGE = 2;
+  const POST_PER_PAGE = 5;
 
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
   return (
-    <div className="relative h-full pr-10 border-r ">
+    <div className="relative h-full pr-10 sm:border-r ">
       {cat ? (
         <h1 className="text-4xl font-semibold my-5">Category: {cat}</h1>
       ) : (

@@ -23,7 +23,7 @@ export const data = {
     },
     {
       id: "6",
-      name: "Cybersecurity Careers",
+      name: "Cyber Careers",
     },
   ],
 };
