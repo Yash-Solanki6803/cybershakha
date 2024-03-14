@@ -19,13 +19,13 @@ const WritePage = () => {
   const { status } = useSession();
   const router = useRouter();
 
-  const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
   const [loading, setLoading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
 
   useEffect(() => {
     const storage = getStorage(app);
@@ -40,7 +40,11 @@ const WritePage = () => {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
+          console.log("Upload is " + progress + "% done :: ");
+          console.log(loading);
+          setLoading(true);
+          setUploadProgress(progress);
+
           switch (snapshot.state) {
             case "paused":
               console.log("Upload is paused");
@@ -53,6 +57,7 @@ const WritePage = () => {
         (error) => {},
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log("upload done");
             setMedia(downloadURL);
           });
         }
@@ -101,9 +106,10 @@ const WritePage = () => {
       <input
         type="text"
         placeholder="Title"
-        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white"
+        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white outline-none focus:outline-none"
         maxLength={100}
         onChange={(e) => setTitle(e.target.value)}
+        required
       />
 
       <div className="my-10 flex justify-between">
