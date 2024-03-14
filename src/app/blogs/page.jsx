@@ -10,8 +10,8 @@ const BlogPage = ({ searchParams }) => {
   const { cat } = searchParams;
   return (
     <div className="pt-40 w-full">
-      <div className=" min-h-[80vh] w-full flex md:flex-row flex-col sm:pb-10 md:gap-10 border-b">
-        <div className=" md:h-full md:w-1/2 md:pr-20 md:py-24">
+      <div className="lg:border min-h-[80vh] w-full flex lg:flex-row flex-col sm:pb-10 lg:gap-10 border-b">
+        <div className=" lg:h-full lg:w-1/2 lg:pr-20 lg:py-24">
           <h1 className="md:text-8xl sm:text-6xl text-5xl md:text-left text-center font-bold">
             Insights, Analysis, and Cybersecurity Wisdom
           </h1>
@@ -20,7 +20,7 @@ const BlogPage = ({ searchParams }) => {
             Digital Landscape
           </p>
         </div>
-        <div className=" h-full flex flex-col items-start md:w-1/2 mt-10">
+        <div className=" h-full flex flex-col items-start lg:w-1/2 mt-10">
           <Image
             src="/images/typing.png"
             alt="Hero Image"
@@ -29,7 +29,7 @@ const BlogPage = ({ searchParams }) => {
             width={500}
             height={500}
           />
-          <h3 className="mt-10 md:text-4xl text-xl">
+          <h3 className="mt-10 lg:text-4xl text-xl">
             Lorem ipsum dolor sit amet alim consectetur adipisicing elit.{" "}
           </h3>
           <Link
@@ -54,11 +54,11 @@ const BlogPage = ({ searchParams }) => {
           ))}
         </div>
       </div>
-      <div className=" w-full flex md:flex-row flex-col mt-10 md:gap-24">
-        <div className=" md:w-2/3 min-h-[50vh] ">
+      <div className=" w-full flex lg:flex-row flex-col mt-10 lg:gap-24">
+        <div className=" lg:w-2/3 min-h-[50vh] ">
           <CardList page={page} cat={cat} />
         </div>
-        <div className="md:mt-0 mt-10  flex md:w-1/3 min-h-[50vh] ">
+        <div className="lg:mt-0 mt-10  flex lg:w-1/3 min-h-[50vh] ">
           <Menu />
         </div>
       </div>
