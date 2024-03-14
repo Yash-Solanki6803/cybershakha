@@ -9,7 +9,7 @@ const Pagination = ({ page, hasPrev, hasNext }) => {
   const router = useRouter();
 
   return (
-    <div className=" flex justify-between sm:px-20 ">
+    <div className=" flex justify-between md:px-20 ">
       <button
         className={classNames(
           "cursor-pointer border border-transparent bg-brand_primary_dark py-2  sm:w-48 w-32 sm:rounded-full rounded-2xl sm:text-lg hover:bg-transparent hover:border-brand_primary hover:text-brand_primary transition-all duration-300",

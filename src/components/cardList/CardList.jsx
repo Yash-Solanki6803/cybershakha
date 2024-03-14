@@ -30,7 +30,7 @@ const CardList = async ({ page, cat }) => {
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
   return (
-    <div className="relative h-full pr-10 sm:border-r ">
+    <div className="  relative h-full md:pr-10 md:border-r ">
       {cat ? (
         <h1 className="text-4xl font-semibold my-5">Category: {cat}</h1>
       ) : (

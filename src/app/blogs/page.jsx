@@ -10,17 +10,17 @@ const BlogPage = ({ searchParams }) => {
   const { cat } = searchParams;
   return (
     <div className="pt-40 w-full">
-      <div className=" h-[80vh] w-full flex sm:flex-row flex-col  sm:gap-10 border-b">
-        <div className=" sm:h-full sm:w-1/2 sm:pr-20 sm:py-24">
-          <h1 className="sm:text-8xl text-5xl sm:text-left text-center font-bold">
+      <div className=" min-h-[80vh] w-full flex md:flex-row flex-col sm:pb-10 md:gap-10 border-b">
+        <div className=" md:h-full md:w-1/2 md:pr-20 md:py-24">
+          <h1 className="md:text-8xl sm:text-6xl text-5xl md:text-left text-center font-bold">
             Insights, Analysis, and Cybersecurity Wisdom
           </h1>
-          <p className="text-lg mt-10 sm:text-left text-center">
+          <p className="text-lg mt-10 md:text-left text-center">
             Explore the CyberShakha Blog for Expert Guidance on Navigating the
             Digital Landscape
           </p>
         </div>
-        <div className=" h-full flex flex-col items-start sm:w-1/2 mt-10">
+        <div className=" h-full flex flex-col items-start md:w-1/2 mt-10">
           <Image
             src="/images/typing.png"
             alt="Hero Image"
@@ -29,7 +29,7 @@ const BlogPage = ({ searchParams }) => {
             width={500}
             height={500}
           />
-          <h3 className="mt-10 sm:text-4xl text-xl">
+          <h3 className="mt-10 md:text-4xl text-xl">
             Lorem ipsum dolor sit amet alim consectetur adipisicing elit.{" "}
           </h3>
           <Link
@@ -54,11 +54,11 @@ const BlogPage = ({ searchParams }) => {
           ))}
         </div>
       </div>
-      <div className=" w-full flex sm:flex-row flex-col mt-10 sm:gap-24">
-        <div className=" sm:w-2/3 min-h-[50vh] ">
+      <div className=" w-full flex md:flex-row flex-col mt-10 md:gap-24">
+        <div className=" md:w-2/3 min-h-[50vh] ">
           <CardList page={page} cat={cat} />
         </div>
-        <div className="sm:mt-0 mt-10  flex sm:w-1/3 min-h-[50vh] ">
+        <div className="md:mt-0 mt-10  flex md:w-1/3 min-h-[50vh] ">
           <Menu />
         </div>
       </div>
