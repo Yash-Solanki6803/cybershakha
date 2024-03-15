@@ -8,7 +8,7 @@ export const GET = async (req) => {
   const page = searchParams.get("page");
   const cat = searchParams.get("cat");
 
-  const WRITEUP_PER_PAGE = 2;
+  const WRITEUP_PER_PAGE = 5;
 
   const query = {
     take: WRITEUP_PER_PAGE,
@@ -43,8 +43,7 @@ export const POST = async (req) => {
       JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
     );
   }
-  //   console.log("session", session);
-  //   console.log("req", req);
+
   try {
     const body = await req.json();
     const writeUp = await prisma.writeUp.create({

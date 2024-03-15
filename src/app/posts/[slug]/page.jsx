@@ -1,7 +1,7 @@
 import Menu from "@/components/Menu/Menu";
 // import styles from "./singlePage.module.css";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 // import Comments from "@/components/comments/Comments";
 
 const getData = async (slug) => {
