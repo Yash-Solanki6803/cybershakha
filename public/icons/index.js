@@ -14,3 +14,4 @@ export { default as icon_twitter } from "./icon_twitter.png";
 export { default as icon_youtube } from "./icon_youtube.png";
 export { default as icon_delete } from "./delete.svg";
 export { default as icon_edit } from "./edit.svg";
+export { default as google } from "./google.png";
