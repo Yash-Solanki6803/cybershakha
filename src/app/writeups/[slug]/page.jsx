@@ -1,7 +1,7 @@
 import Menu from "@/components/Menu/Menu";
-// import styles from "./singlePage.module.css";
 import Image from "next/image";
 // import Comments from "@/components/comments/Comments";
+import Markdown from "markdown-to-jsx";
 
 const getData = async (slug) => {
   const res = await fetch(`http://localhost:3000/api/writeups/${slug}`, {
@@ -14,9 +14,6 @@ const getData = async (slug) => {
 
   return res.json();
 };
-
-SyntaxHighlighter.registerLanguage("bash", bash);
-SyntaxHighlighter.registerLanguage("markdown", markdown);
 
 const SinglePage = async ({ params }) => {
   const { slug } = params;
@@ -73,11 +70,8 @@ const SinglePage = async ({ params }) => {
 
       <div className=" w-full flex lg:flex-row flex-col mt-10 lg:gap-10">
         <div className=" lg:w-2/3 min-h-[50vh] md:pr-10 lg:border-r flex flex-col items-center">
-          {/* <p className="prose text-2xl font-light mt-10 md:text-left text-center">
-            {data?.desc}
-          </p> */}
-          <div className="text-white prose prose-2xl   prose-neutral w-full prose-headings:text-white prose-p:text-white prose-a:text-brand_primary prose-blockquote:text-slate-400 ">
-            {/* <Markdown>{data?.desc}</Markdown> */}
+          <div className="text-white prose prose-2xl prose-neutral w-full prose-headings:text-white prose-p:text-white prose-a:text-brand_primary prose-blockquote:text-slate-400 prose-code:text-green-300">
+            <Markdown>{data?.desc}</Markdown>
           </div>
 
           <div>
@@ -85,7 +79,9 @@ const SinglePage = async ({ params }) => {
             Comments ....
           </div>
         </div>
-        <Menu />
+        <div className=" lg:mt-0 mt-10 flex lg:w-1/3 min-h-[50vh] ">
+          <Menu />
+        </div>
       </div>
     </div>
   );
