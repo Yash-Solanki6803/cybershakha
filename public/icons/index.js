@@ -15,3 +15,6 @@ export { default as icon_youtube } from "./icon_youtube.png";
 export { default as icon_delete } from "./delete.svg";
 export { default as icon_edit } from "./edit.svg";
 export { default as google } from "./google.png";
+export { default as cyber_security } from "./cyber-security.png";
+export { default as protection } from "./protection.svg";
+export { default as scan_virus } from "./scan-virus.svg";
