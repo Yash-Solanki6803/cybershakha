@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={titillium.className}>
       <body
         className={classNames(
-          "min-h-screen bg-brand_black text-white relative overflow-x-hidden  2xl:px-32  xl:px-24  lg:px-16 px-10"
+          "min-h-screen max-w-screen bg-brand_black text-white relative overflow-x-hidden  2xl:px-32  xl:px-24  lg:px-16 px-10"
         )}
       >
         <AuthProvider>

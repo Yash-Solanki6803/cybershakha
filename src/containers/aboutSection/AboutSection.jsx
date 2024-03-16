@@ -7,7 +7,7 @@ function AboutSection() {
   return (
     <section
       id="about"
-      className=" flex lg:flex-row flex-col-reverse xl:gap-4 lg:h-screen h-[70vh] relative py-14 lg:mt-20"
+      className=" flex lg:flex-row flex-col-reverse xl:gap-4 lg:h-screen min-h-[70vh] relative py-14 lg:mt-20"
     >
       {/* images */}
       <div className=" animate-pulse hidden lg:flex lg:flex-auto flex-col xl:w-[45%] lg:w-1/2 justify-start items-start py-24 relative">

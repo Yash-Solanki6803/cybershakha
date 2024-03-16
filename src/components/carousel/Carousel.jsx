@@ -98,17 +98,17 @@ const Carousel = () => {
       </div>
       <div
         ref={carousel}
-        className=" h-full w-full carousel-container relative flex px-4 items-center gap-10 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0"
+        className=" h-full w-full carousel-container relative flex  items-center gap-10 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0"
       >
         {data.resources.map((item, index) => {
           return (
             <div
               key={index}
-              className="carousel-item text-left relative p-10 w-full h-[200px] snap-center bg-glass-gradient rounded-3xl hover:scale-105 transition-all duration-300 border border-transparent hover:border-brand_primary"
+              className="carousel-item text-left relative p-4 w-[350px] h-[200px] snap-center bg-glass-gradient rounded-3xl hover:scale-105 transition-all duration-300 border border-transparent hover:border-brand_primary"
             >
-              <div className="h-44 w-[350px] z-0">
+              <div className=" h-full w-[250px] z-0">
                 <h2 className="text-2xl font-semibold">{item.title}</h2>
-                <p className="mt-4">{item.description}</p>
+                <p className="mt-4 text-sm">{item.description}</p>
               </div>
             </div>
           );

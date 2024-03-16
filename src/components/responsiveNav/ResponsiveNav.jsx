@@ -21,8 +21,8 @@ export default function ResponsiveNav() {
       <div className="bg-glass p-3 rounded-[2rem] gap-9 flex flex-col ">
         <Navlink href="/">Home</Navlink>
         <Navlink href="/blogs">Blogs</Navlink>
+        <Navlink href="/writeups">Write Ups</Navlink>
         <Navlink href="/about">About</Navlink>
-        <Navlink href="/about#services">Services</Navlink>
       </div>
       {/* AuthLinks */}
       <div className="bg-glass p-3 rounded-[2rem] ">
