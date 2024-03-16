@@ -104,11 +104,11 @@ const Carousel = () => {
           return (
             <div
               key={index}
-              className="carousel-item text-left relative p-4 w-[350px] h-[200px] snap-center bg-glass-gradient rounded-3xl hover:scale-105 transition-all duration-300 border border-transparent hover:border-brand_primary"
+              className="carousel-item text-left relative lg:px-10 p-4 w-[350px] h-[200px] snap-center bg-glass-gradient rounded-3xl hover:scale-105 transition-all duration-300 border border-transparent hover:border-brand_primary"
             >
               <div className=" h-full w-[250px] z-0">
                 <h2 className="text-2xl font-semibold">{item.title}</h2>
-                <p className="mt-4 text-sm">{item.description}</p>
+                <p className="mt-2 text-sm font-light">{item.description}</p>
               </div>
             </div>
           );

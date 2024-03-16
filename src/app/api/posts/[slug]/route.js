@@ -1,9 +1,7 @@
 import { getAuthSession } from "@/utils/auth";
 import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
-import { isAdmin } from "@/utils/isAdmin";
-import { isAuthor } from "@/utils/isAuthor";
-
+import useUser from "@/store/useUser";
 // GET SINGLE POST
 export const GET = async (req, { params }) => {
   const { slug } = params;
@@ -28,6 +26,7 @@ export const GET = async (req, { params }) => {
 export const DELETE = async (req, { params }) => {
   const { slug } = params;
   const session = await getAuthSession();
+  // const { user } = useUser();
 
   if (!session) {
     return new NextResponse(
@@ -39,6 +38,7 @@ export const DELETE = async (req, { params }) => {
   try {
     // Check if the user is an admin or the author of the post
     const canDelete = true;
+
     if (canDelete) {
       await prisma.post.delete({
         where: { slug },
@@ -51,6 +51,35 @@ export const DELETE = async (req, { params }) => {
         )
       );
     }
+  } catch (err) {
+    return new NextResponse(
+      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
+    );
+  }
+};
+
+// UPDATE A POST
+export const PUT = async (req, { params }) => {
+  const { slug } = params;
+  const session = await getAuthSession();
+
+  if (!session) {
+    return new NextResponse(
+      JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
+    );
+  }
+
+  try {
+    const body = await req.json();
+    const post = await prisma.post.update({
+      where: { slug },
+      data: {
+        ...body,
+        userEmail: session.user.email,
+      },
+    });
+
+    return new NextResponse(JSON.stringify(post, { status: 200 }));
   } catch (err) {
     return new NextResponse(
       JSON.stringify({ message: "Something went wrong!" }, { status: 500 })

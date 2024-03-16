@@ -4,7 +4,8 @@ import Link from "next/link";
 import classNames from "classnames";
 import DeleteIcon from "../deleteIcon/DeleteIcon";
 import EditIcon from "../editIcon/EditIcon";
-
+import CardActions from "../cardActions/CardActions";
+import Markdown from "markdown-to-jsx";
 const WriteUpCard = ({ key, item, isInverted = false }) => {
   return (
     <div
@@ -32,12 +33,7 @@ const WriteUpCard = ({ key, item, isInverted = false }) => {
           <div className="relative ">
             <span>{item.createdAt.substring(0, 10)} - </span>
             <span>{item.catSlug}</span>
-            <div className="absolute flex gap-4  top-0 right-0 h-full">
-              <Link href="/">
-                <EditIcon width={20} height={20} fill="white" />
-              </Link>
-              <DeleteIcon width={20} height={20} fill="white" item={item} />
-            </div>
+            <CardActions item={item} itemtype="writeups" />
           </div>
           <Link
             href={`/writeups/${item.slug}`}
@@ -46,7 +42,10 @@ const WriteUpCard = ({ key, item, isInverted = false }) => {
             <h1>{item.title}</h1>
           </Link>
           {/* <p className={styles.desc}>{item.desc.substring(0, 60)}</p> */}
-          <p>{item.desc.substring(0, 60)}</p>
+          {/* <p>{item.desc.substring(0, 60)}</p> */}
+          <div className="line-clamp-1">
+            <Markdown>{item?.desc}</Markdown>
+          </div>
         </article>
         <Link
           href={`/writeups/${item.slug}`}

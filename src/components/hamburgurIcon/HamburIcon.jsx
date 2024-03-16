@@ -1,5 +1,5 @@
 "use client";
-import useModal from "@/app/store/useModal";
+import useModal from "@/store/useModal";
 import "./hamburIcon.css";
 import classNames from "classnames";
 // import ResponsiveNav from "../responsiveNav/ResponsiveNav";

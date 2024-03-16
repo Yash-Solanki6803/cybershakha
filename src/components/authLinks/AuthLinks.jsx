@@ -1,13 +1,15 @@
 "use client";
 import Navlink from "../navLink/NavLink";
 import { useState, useEffect } from "react";
+import useUser from "@/store/useUser";
 import { signOut, useSession } from "next-auth/react";
 
 export default function AuthLinks() {
   //   const [open, setOpen] = useState(false);
 
   const { status, data } = useSession();
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
+  const { user, setUser } = useUser();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -44,26 +46,6 @@ export default function AuthLinks() {
           </span>
         </>
       )}
-      {/* <div   onClick={() => setOpen(!open)}>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
-      </div> */}
-      {/* {open && ( */}
-      {/* <div >
-        <Navlink href="/">Homepage</Navlink>
-        <Navlink href="/">About</Navlink>
-        <Navlink href="/">Contact</Navlink>
-        {status === "unauthenticated" ? (
-          <Navlink href="/login">Login</Navlink>
-        ) : (
-          <>
-            <Navlink href="/write">Write</Navlink>
-            <span>Logout</span>
-          </>
-        )}
-      </div> */}
-      {/* )} */}
     </>
   );
 }

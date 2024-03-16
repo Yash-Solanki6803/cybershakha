@@ -3,7 +3,7 @@
 import React from "react";
 import Navlink from "../navLink/NavLink";
 import AuthLinks from "../authLinks/AuthLinks";
-import useModal from "@/app/store/useModal";
+import useModal from "@/store/useModal";
 import classNames from "classnames";
 
 export default function ResponsiveNav() {
@@ -20,7 +20,7 @@ export default function ResponsiveNav() {
     >
       <div className="bg-glass p-3 rounded-[2rem] gap-9 flex flex-col ">
         <Navlink href="/">Home</Navlink>
-        <Navlink href="/blogs">Blogs</Navlink>
+        <Navlink href="/posts">Blogs</Navlink>
         <Navlink href="/writeups">Write Ups</Navlink>
         <Navlink href="/about">About</Navlink>
       </div>

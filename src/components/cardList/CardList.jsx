@@ -38,7 +38,7 @@ const CardList = async ({ page, cat }) => {
       )}
       <div>
         {posts?.map((item, index) => (
-          <Card isInverted={index % 2 != 0} item={item} key={item._id} />
+          <Card isInverted={index % 2 != 0} item={item} key={index} />
         ))}
       </div>
       <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />

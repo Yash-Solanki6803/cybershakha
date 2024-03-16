@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-// import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
@@ -13,29 +11,47 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
-import Loader from "@/components/loader/loader";
 
-const WritePage = () => {
-  const { status } = useSession();
+const PostEditPage = ({ params }) => {
   const router = useRouter();
+  const { slug } = params;
+  const { status } = useSession();
 
   const [file, setFile] = useState(null);
   const [media, setMedia] = useState("");
+  //description
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const ALLOWED_SIZE = 512000; //500kb
+  let oldImage = "";
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/posts/${slug}`);
+
+        if (response.ok) {
+          const post = await response.json();
+          setTitle(post.title);
+          setValue(post.desc);
+          oldImage = post.img;
+          setCatSlug(post.catSlug);
+        } else {
+          console.error("Failed to fetch Post:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching Post:", error);
+      }
+    };
+
+    fetchPost();
+  }, []);
 
   useEffect(() => {
     const storage = getStorage(app);
     const upload = () => {
-      if (file.size > ALLOWED_SIZE) {
-        alert("File size is too large");
-        return;
-      }
-      setLoading(true);
       const name = new Date().getTime() + file.name;
       const storageRef = ref(storage, name);
 
@@ -61,7 +77,6 @@ const WritePage = () => {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setMedia(downloadURL);
-            setLoading(false);
           });
         }
       );
@@ -87,8 +102,11 @@ const WritePage = () => {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
-    const res = await fetch("/api/writeups", {
-      method: "POST",
+    if ((media = "")) {
+      setMedia(oldImage);
+    }
+    const res = await fetch(`/api/posts/${slug}`, {
+      method: "PUT",
       body: JSON.stringify({
         title,
         desc: value,
@@ -100,7 +118,7 @@ const WritePage = () => {
 
     if (res.status === 200) {
       const data = await res.json();
-      router.push(`/writeups/${data.slug}`);
+      router.push(`/posts/${data.slug}`);
     }
   };
 
@@ -109,14 +127,15 @@ const WritePage = () => {
       <input
         type="text"
         placeholder="Title"
-        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white outline-none focus:outline-none"
+        value={title}
+        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white"
         maxLength={100}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <div className=" my-10 flex md:flex-row flex-col gap-4 justify-between items-center">
+      <div className=" my-10 flex items-center justify-between">
         <select
           onChange={(e) => setCatSlug(e.target.value)}
-          className="bg-brand_primary_dark text-center py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+          className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
         >
           <option defaultValue>Select a category</option>
           <option value="style">style</option>
@@ -127,11 +146,13 @@ const WritePage = () => {
           <option value="coding">coding</option>
         </select>
         {media && file && (
-          <p className="text-xl font-thin">Image {file.name} uploaded</p>
+          <p className="text-xl font-semibold">
+            Image : {file?.name} is uploaded
+          </p>
         )}
-        {loading && (
-          <p className="text-xl font-thin flex">
-            Uploading <Loader className="ml-10" />
+        {!media && (
+          <p className="text-xl font-semibold">
+            Image : {oldImage} is already uploaded
           </p>
         )}
         <input
@@ -142,11 +163,11 @@ const WritePage = () => {
           disabled={loading || (media && file)}
           accept="image/*"
         />
-        <button
-          disabled={loading || (media && file)}
-          className="bg-brand_primary_dark py-4 px-10 disabled:cursor-not-allowed appearance-none rounded-lg cursor-pointer focus:outline-none"
-        >
-          <label htmlFor="image">
+        <button>
+          <label
+            htmlFor="image"
+            className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+          >
             {/* <Image src="/image.png" alt="" width={16} height={16} /> */}
             Add Image
           </label>
@@ -160,9 +181,9 @@ const WritePage = () => {
         className="bg-transparent w-full h-[50vh] placeholder:text-white placeholder:text-xl text-xl cursor-text p-4 focus:outline-none "
       ></textarea>
       <button
-        disabled={loading || !title || !value || !media || !catSlug}
+        disabled={!value || !title || loading}
         onClick={handleSubmit}
-        className="bg-brand_primary_dark disabled:cursor-not-allowed mt-10 py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary"
+        className="bg-brand_primary_dark mt-10 py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary disabled:cursor-not-allowed"
       >
         Publish
       </button>
@@ -170,4 +191,4 @@ const WritePage = () => {
   );
 };
 
-export default WritePage;
+export default PostEditPage;

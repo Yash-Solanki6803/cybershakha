@@ -14,6 +14,7 @@ import {
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
 import ReactQuill from "react-quill";
+import Loader from "@/components/loader/loader";
 
 const WritePage = () => {
   const { status } = useSession();
@@ -25,9 +26,9 @@ const WritePage = () => {
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
   const [loading, setLoading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
 
   useEffect(() => {
+    setLoading(true);
     const storage = getStorage(app);
     const upload = () => {
       const name = new Date().getTime() + file.name;
@@ -41,9 +42,6 @@ const WritePage = () => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done :: ");
-          console.log(loading);
-          setLoading(true);
-          setUploadProgress(progress);
 
           switch (snapshot.state) {
             case "paused":
@@ -57,8 +55,8 @@ const WritePage = () => {
         (error) => {},
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log("upload done");
             setMedia(downloadURL);
+            setLoading(false);
           });
         }
       );
@@ -125,6 +123,14 @@ const WritePage = () => {
           <option value="travel">travel</option>
           <option value="coding">coding</option>
         </select>
+        {media && file && (
+          <p className="text-xl font-thin">Image {file.name} uploaded</p>
+        )}
+        {loading && (
+          <p className="text-xl font-thin flex">
+            Uploading <Loader className="ml-10" />
+          </p>
+        )}
         <input
           type="file"
           id="image"
@@ -150,7 +156,7 @@ const WritePage = () => {
       />
 
       <button
-        disabled={loading}
+        disabled={loading || !title || !value || !media || !catSlug}
         onClick={handleSubmit}
         className="bg-brand_primary_dark py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary"
       >

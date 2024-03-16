@@ -10,7 +10,7 @@ const BlogPage = ({ searchParams }) => {
   const { cat } = searchParams;
   return (
     <div className="pt-40 w-full">
-      <div className=" min-h-[60vh] w-full flex lg:flex-row flex-col sm:pb-10 lg:gap-10 border-b">
+      <div className=" min-h-[60vh] w-full flex lg:flex-row flex-col pb-10 lg:gap-10 border-b">
         <div className=" lg:h-full lg:w-1/2 lg:pr-20 lg:py-10">
           <h1 className="2xl:text-8xl lg:text-6xl md:text-8xl sm:text-6xl text-5xl md:text-left text-center font-bold">
             Insights, Analysis, and Cybersecurity Wisdom

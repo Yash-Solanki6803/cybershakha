@@ -18,3 +18,5 @@ export { default as google } from "./google.png";
 export { default as cyber_security } from "./cyber-security.png";
 export { default as protection } from "./protection.svg";
 export { default as scan_virus } from "./scan-virus.svg";
+export { default as close } from "./close.png";
+export { default as loader } from "./loader.png";

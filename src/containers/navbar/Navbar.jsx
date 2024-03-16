@@ -18,7 +18,7 @@ const Navbar = () => {
       {/* nav links */}
       <div className="bg-glass p-3 rounded-[3rem]  justify-around gap-9 xl:flex hidden">
         <Navlink href="/">Home</Navlink>
-        <Navlink href="/blogs">Blogs</Navlink>
+        <Navlink href="/posts">Blogs</Navlink>
         <Navlink href="/writeups">Write Ups</Navlink>
         <Navlink href="/about">About</Navlink>
       </div>

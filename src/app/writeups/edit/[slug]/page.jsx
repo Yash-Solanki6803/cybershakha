@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-// import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
@@ -13,29 +11,49 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
-import Loader from "@/components/loader/loader";
 
-const WritePage = () => {
+const WriteEditPage = ({ params }) => {
+  const { slug } = params;
   const { status } = useSession();
   const router = useRouter();
 
   const [file, setFile] = useState(null);
   const [media, setMedia] = useState("");
+  //description
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const ALLOWED_SIZE = 512000; //500kb
+  let oldImage = "";
+
+  useEffect(() => {
+    const fetchWriteUp = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/api/writeups/${slug}`
+        );
+
+        if (response.ok) {
+          const post = await response.json();
+          setTitle(post.title);
+          setValue(post.desc);
+          oldImage = post.img;
+          setCatSlug(post.catSlug);
+        } else {
+          console.error("Failed to fetch Writeup:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching Writeup:", error);
+      }
+    };
+
+    fetchWriteUp();
+  }, []);
 
   useEffect(() => {
     const storage = getStorage(app);
     const upload = () => {
-      if (file.size > ALLOWED_SIZE) {
-        alert("File size is too large");
-        return;
-      }
-      setLoading(true);
       const name = new Date().getTime() + file.name;
       const storageRef = ref(storage, name);
 
@@ -47,6 +65,7 @@ const WritePage = () => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
+
           switch (snapshot.state) {
             case "paused":
               console.log("Upload is paused");
@@ -61,7 +80,6 @@ const WritePage = () => {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setMedia(downloadURL);
-            setLoading(false);
           });
         }
       );
@@ -87,8 +105,11 @@ const WritePage = () => {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
-    const res = await fetch("/api/writeups", {
-      method: "POST",
+    if ((media = "")) {
+      setMedia(oldImage);
+    }
+    const res = await fetch(`/api/writeups/${slug}`, {
+      method: "PUT",
       body: JSON.stringify({
         title,
         desc: value,
@@ -109,14 +130,15 @@ const WritePage = () => {
       <input
         type="text"
         placeholder="Title"
-        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white outline-none focus:outline-none"
+        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white"
         maxLength={100}
+        value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <div className=" my-10 flex md:flex-row flex-col gap-4 justify-between items-center">
+      <div className="my-10 flex justify-between">
         <select
           onChange={(e) => setCatSlug(e.target.value)}
-          className="bg-brand_primary_dark text-center py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+          className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
         >
           <option defaultValue>Select a category</option>
           <option value="style">style</option>
@@ -126,14 +148,6 @@ const WritePage = () => {
           <option value="travel">travel</option>
           <option value="coding">coding</option>
         </select>
-        {media && file && (
-          <p className="text-xl font-thin">Image {file.name} uploaded</p>
-        )}
-        {loading && (
-          <p className="text-xl font-thin flex">
-            Uploading <Loader className="ml-10" />
-          </p>
-        )}
         <input
           type="file"
           id="image"
@@ -142,11 +156,11 @@ const WritePage = () => {
           disabled={loading || (media && file)}
           accept="image/*"
         />
-        <button
-          disabled={loading || (media && file)}
-          className="bg-brand_primary_dark py-4 px-10 disabled:cursor-not-allowed appearance-none rounded-lg cursor-pointer focus:outline-none"
-        >
-          <label htmlFor="image">
+        <button>
+          <label
+            htmlFor="image"
+            className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+          >
             {/* <Image src="/image.png" alt="" width={16} height={16} /> */}
             Add Image
           </label>
@@ -160,9 +174,9 @@ const WritePage = () => {
         className="bg-transparent w-full h-[50vh] placeholder:text-white placeholder:text-xl text-xl cursor-text p-4 focus:outline-none "
       ></textarea>
       <button
-        disabled={loading || !title || !value || !media || !catSlug}
+        disabled={!value || !title || loading}
         onClick={handleSubmit}
-        className="bg-brand_primary_dark disabled:cursor-not-allowed mt-10 py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary"
+        className="bg-brand_primary_dark py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary disabled:cursor-not-allowed"
       >
         Publish
       </button>
@@ -170,4 +184,4 @@ const WritePage = () => {
   );
 };
 
-export default WritePage;
+export default WriteEditPage;

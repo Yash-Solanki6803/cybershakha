@@ -2,8 +2,7 @@ import Image from "next/image";
 // import styles from "./card.module.css";
 import Link from "next/link";
 import classNames from "classnames";
-import DeleteIcon from "../deleteIcon/DeleteIcon";
-import EditIcon from "../editIcon/EditIcon";
+import CardActions from "../cardActions/CardActions";
 
 const Card = ({ key, item, isInverted = false }) => {
   return (
@@ -20,9 +19,9 @@ const Card = ({ key, item, isInverted = false }) => {
             <Image
               className="w-[550px] aspect-video object-cover rounded-tl-[15%] rounded-br-[15%] shadow-md hover:shadow-white transition-all duration-150"
               src={item.img}
-              alt=""
-              width={100}
-              height={70}
+              alt={`Image for ${item.title}`}
+              width={1000}
+              height={700}
             />
           </Link>
         </div>
@@ -32,12 +31,8 @@ const Card = ({ key, item, isInverted = false }) => {
           <div className="relative ">
             <span>{item.createdAt.substring(0, 10)} - </span>
             <span>{item.catSlug}</span>
-            <div className="absolute flex gap-4  top-0 right-0 h-full">
-              <Link href="/">
-                <EditIcon width={20} height={20} fill="white" />
-              </Link>
-              <DeleteIcon width={20} height={20} fill="white" item={item} />
-            </div>
+
+            <CardActions item={item} itemtype="posts" />
           </div>
           <Link
             href={`/posts/${item.slug}`}

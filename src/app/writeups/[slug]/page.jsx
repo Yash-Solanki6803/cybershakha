@@ -29,9 +29,9 @@ const SinglePage = async ({ params }) => {
           <h1 className="2xl:text-8xl lg:text-6xl md:text-8xl sm:text-6xl text-5xl md:text-left text-center font-bold">
             {data?.title}
           </h1>
-          <p className="line-clamp-3 text-2xl font-light mt-10 md:text-left text-center">
-            {data?.desc}
-          </p>
+          <div className="line-clamp-3 text-2xl font-light mt-10 md:text-left text-center">
+            <Markdown>{data?.desc}</Markdown>
+          </div>
 
           {/* Author Info */}
           <div className="flex  items-center  lg:mt-20 mt-10">
