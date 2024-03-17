@@ -165,7 +165,7 @@ const WritePage = () => {
       <button
         disabled={loading || !title || !value || !catSlug}
         onClick={handleSubmit}
-        className="bg-brand_primary_dark py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary disabled:cursor-not-allowed"
+        className="bg-brand_primary_dark mt-10 py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary disabled:cursor-not-allowed"
       >
         Publish
       </button>

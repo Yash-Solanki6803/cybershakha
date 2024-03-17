@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
   try {
-    const posts = await prisma.post.findMany({
+    const posts = await prisma.writeUp.findMany({
       take: 5,
       orderBy: {
         views: "desc",

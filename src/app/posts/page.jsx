@@ -25,7 +25,6 @@ const BlogPage = ({ searchParams }) => {
             src="/images/typing.png"
             alt="Hero Image"
             className="w-full aspect-video object-cover shadow-2xl hover:shadow-white  rounded-tl-[15%] rounded-br-[15%] transition-all duration-500 ease-in-out"
-            objectFit="cover"
             width={500}
             height={500}
           />
@@ -59,7 +58,7 @@ const BlogPage = ({ searchParams }) => {
           <CardList page={page} cat={cat} />
         </div>
         <div className="lg:mt-0 mt-10 flex lg:w-1/3 min-h-[50vh] ">
-          <Menu />
+          <Menu itemType="posts" />
         </div>
       </div>
     </div>

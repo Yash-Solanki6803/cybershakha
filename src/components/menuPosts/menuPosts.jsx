@@ -1,12 +1,23 @@
 import SingleMenuPost from "../singleMenuPost/SingleMenuPost";
-const MenuPosts = () => {
+
+const getData = async ({ itemType, postType }) => {
+  const res = await fetch(`http://localhost:3000/api/${itemType}/${postType}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed");
+  }
+
+  return res.json();
+};
+const MenuPosts = async ({ itemType = "", postType = "" }) => {
+  const { posts } = await getData({ itemType, postType });
   return (
     <div>
-      <SingleMenuPost />
-      <SingleMenuPost />
-      <SingleMenuPost />
-      <SingleMenuPost />
-      <SingleMenuPost />
+      {posts?.map((item, index) => (
+        <SingleMenuPost item={item} key={index} />
+      ))}
     </div>
   );
 };

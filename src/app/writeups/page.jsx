@@ -57,7 +57,7 @@ const WriteUpPage = ({ searchParams }) => {
           <WriteUpList page={page} cat={cat} />
         </div>
         <div className="lg:mt-0 mt-10 flex lg:w-1/3 min-h-[50vh] ">
-          <Menu />
+          <Menu itemType="writeups" />
         </div>
       </div>
     </div>
