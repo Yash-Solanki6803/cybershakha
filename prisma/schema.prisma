@@ -81,7 +81,6 @@ model Post {
   cat       Category  @relation(fields: [catSlug], references: [slug])
   userEmail String
   user      User      @relation(fields: [userEmail], references: [email])
-  comments  Comment[]
 }
 
 model WriteUp {
@@ -106,8 +105,7 @@ model Comment {
   desc      String
   userEmail String
   user      User     @relation(fields: [userEmail], references: [email])
-  postSlug  String
-  post      Post     @relation(fields: [postSlug], references: [slug])
+  
   writeUpSlug  String   // Added relation to WriteUp model
   writeUp      WriteUp   @relation(fields: [writeUpSlug], references: [slug])
 }

@@ -22,8 +22,8 @@ const WriteUpCard = ({ key, item, isInverted = false }) => {
               className="w-[550px] aspect-video object-cover rounded-tl-[15%] rounded-br-[15%] shadow-md hover:shadow-white transition-all duration-150"
               src={item.img}
               alt=""
-              width={100}
-              height={70}
+              width={1000}
+              height={700}
             />
           </Link>
         </div>

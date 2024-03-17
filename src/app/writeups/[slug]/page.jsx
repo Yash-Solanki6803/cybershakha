@@ -2,7 +2,8 @@ import Menu from "@/components/Menu/Menu";
 import Image from "next/image";
 // import Comments from "@/components/comments/Comments";
 import Markdown from "markdown-to-jsx";
-
+import Comments from "@/components/comments/Comments";
+import extractDate from "@/utils/extractDate";
 const getData = async (slug) => {
   const res = await fetch(`http://localhost:3000/api/writeups/${slug}`, {
     cache: "no-store",
@@ -19,18 +20,6 @@ const SinglePage = async ({ params }) => {
   const { slug } = params;
 
   const data = await getData(slug);
-  const extractDate = (createdAt) => {
-    const dateObj = new Date(createdAt);
-
-    // Extract the date components
-    const year = dateObj.getFullYear();
-    const month = String(dateObj.getMonth() + 1).padStart(2, "0"); // Adding 1 because getMonth() returns zero-based index
-    const day = String(dateObj.getDate()).padStart(2, "0");
-
-    // Format the date
-    const formattedDate = `${year}-${month}-${day}`;
-    return formattedDate;
-  };
 
   return (
     <div className=" lg:pt-64 pt-52">
@@ -83,18 +72,17 @@ const SinglePage = async ({ params }) => {
       </div>
 
       <div className=" w-full flex lg:flex-row flex-col mt-10 lg:gap-10">
-        <div className=" lg:w-2/3 min-h-[50vh] md:pr-10 lg:border-r flex flex-col items-center">
+        <div className=" lg:w-2/3 min-h-[50vh] md:pr-10 lg:border-r flex flex-col items-center justify-between">
           <div className="text-white prose prose-2xl prose-neutral w-full prose-headings:text-white prose-p:text-white prose-a:text-brand_primary prose-blockquote:text-slate-400 prose-code:text-green-300">
             <Markdown>{data?.desc}</Markdown>
           </div>
 
-          <div>
-            {/* <Comments postSlug={slug} /> */}
-            Comments ....
+          <div className=" w-full">
+            <Comments writeUpSlug={slug} />
           </div>
         </div>
         <div className=" lg:mt-0 mt-10 flex lg:w-1/3 min-h-[50vh] ">
-          <Menu />
+          <Menu itemType="writeups" />
         </div>
       </div>
     </div>
