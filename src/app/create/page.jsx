@@ -13,6 +13,7 @@ import {
 import { app } from "@/utils/firebase";
 import ReactQuill from "react-quill";
 import Loader from "@/components/loader/loader";
+import { data } from "@/data";
 
 const WritePage = () => {
   const { status } = useSession();
@@ -117,18 +118,22 @@ const WritePage = () => {
         required
       />
 
-      <div className="my-10 flex justify-between">
+      <div className=" my-10 flex md:flex-row flex-col gap-4 justify-between items-center">
         <select
           onChange={(e) => setCatSlug(e.target.value)}
-          className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+          className="bg-brand_primary_dark py-4 w-[175px]  appearance-none rounded-lg cursor-pointer focus:outline-none text-center"
         >
           <option defaultValue>Category</option>
-          <option value="style">style</option>
-          <option value="fashion">fashion</option>
-          <option value="food">food</option>
-          <option value="culture">culture</option>
-          <option value="travel">travel</option>
-          <option value="coding">coding</option>
+          {/* <option value="style">style</option> */}
+          {data.categories.map((category, index) => (
+            <option
+              className="text-center"
+              value={category.name}
+              key={category.id}
+            >
+              {category.name}
+            </option>
+          ))}
         </select>
         {media && file && (
           <p className="text-xl font-thin">Image {file.name} uploaded</p>

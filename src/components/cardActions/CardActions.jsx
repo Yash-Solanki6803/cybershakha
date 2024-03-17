@@ -22,15 +22,17 @@ function CardActions({ itemtype = "", item }) {
             height={20}
             fill="white"
           />
-          <EditorPickIcon
-            width={20}
-            height={20}
-            fill="white"
-            item={item}
-            itemtype={itemtype}
-            className="hover:scale-150"
-          />
         </>
+      )}
+      {isAdmin && (
+        <EditorPickIcon
+          width={20}
+          height={20}
+          fill="white"
+          item={item}
+          itemtype={itemtype}
+          className="hover:scale-150"
+        />
       )}
       {(isAdmin || isAuthor) && (
         <DeleteIcon

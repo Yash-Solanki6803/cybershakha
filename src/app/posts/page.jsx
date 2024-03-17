@@ -1,6 +1,7 @@
 import CardList from "@/components/cardList/CardList";
 // import styles from "./blogPage.module.css";
 import Menu from "@/components/Menu/Menu";
+import CategoryButton from "@/components/categoryButton/CategoryButton";
 import Image from "next/image";
 import Link from "next/link";
 import { data } from "@/data";
@@ -43,13 +44,7 @@ const BlogPage = ({ searchParams }) => {
         <h2 className="text-5xl">Popular Categories</h2>
         <div className=" flex flex-wrap justify-between xl:gap-0 gap-4 mt-10">
           {data.categories.map((category) => (
-            <Link
-              className="border text-center border-transparent bg-brand_primary_dark w-44 py-4 px-8 rounded-lg hover:bg-transparent hover:border-brand_primary hover:text-brand_primary transition-all duration-300 ease-in-out cursor-pointer"
-              key={category.id}
-              href="/"
-            >
-              {category.name}
-            </Link>
+            <CategoryButton key={category.id} category={category} />
           ))}
         </div>
       </div>
