@@ -20,6 +20,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={titillium.className}>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body
         className={classNames(
           "min-h-screen max-w-screen bg-brand_black text-white relative overflow-x-hidden  2xl:px-32  xl:px-24  lg:px-16 px-10"

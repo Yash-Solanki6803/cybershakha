@@ -121,13 +121,15 @@ const WritePage = () => {
       <div className=" my-10 flex md:flex-row flex-col gap-4 justify-between items-center">
         <select
           onChange={(e) => setCatSlug(e.target.value)}
-          className="bg-brand_primary_dark py-4 w-[175px]  appearance-none rounded-lg cursor-pointer focus:outline-none text-center"
+          className="bg-brand_primary_dark py-4 px-4 w-[175px]  appearance-none rounded-lg cursor-pointer focus:outline-none text-left"
         >
-          <option defaultValue>Category</option>
+          <option defaultValue className="text-lg text-center">
+            Category
+          </option>
           {/* <option value="style">style</option> */}
           {data.categories.map((category, index) => (
             <option
-              className="text-center"
+              className="text-left"
               value={category.name}
               key={category.id}
             >

@@ -58,6 +58,7 @@ function Footer() {
               className=" rounded-2xl p-2 w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
+                className="object-contain w-6 h-auto"
                 src={social.instagram.img}
                 alt="instagram"
                 width={20}
@@ -66,9 +67,10 @@ function Footer() {
             </Link>
             <Link
               href={social.facebook.link}
-              className=" rounded-2xl p-2 w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
+              className="object-cover rounded-2xl p-2 w-8 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
+                className="object-contain w-6 h-auto"
                 src={social.facebook.img}
                 alt="facebook"
                 width={11}
@@ -80,10 +82,11 @@ function Footer() {
               className=" rounded-2xl p-2  w-10 h-10 flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
+                className="object-contain w-6 h-auto"
                 src={social.twitter.img}
                 alt="twitter"
                 width={20}
-                height={20}
+                height="auto"
               />
             </Link>
             <Link
@@ -91,6 +94,7 @@ function Footer() {
               className=" rounded-2xl p-2  w-10 h-10  flex items-center justify-center hover:-brand_primary transition-all duration-300 cursor-pointer"
             >
               <Image
+                className="object-contain w-6 h-auto"
                 src={social.youtube.img}
                 alt="youtube"
                 width={20}
@@ -136,13 +140,20 @@ function Footer() {
       <div className="  2xl:w-3/5 h-full  flex 2xl:flex-row flex-col">
         <div className=" 2xl:w-2/5 2xl:mt-0 mt-10 flex sm:justify-between 2xl:justify-start 2xl:flex-col sm:flex-row flex-col">
           <h4 className=" text-2xl">Contact us</h4>
-          <article className=" flex flex-col gap-4 2xl:mt-10 sm:mt-0 mt-10">
-            <div className="flex 2xl:flex-row sm:flex-row-reverse gap-4">
-              <Image src={icon_mail} alt="mail" width={20} height={20} />
+          <article className="flex flex-col gap-4 2xl:mt-10 sm:mt-0 mt-10">
+            <div className="flex  2xl:flex-row sm:flex-row-reverse gap-4">
+              <Image
+                className="object-contain w-6 h-auto"
+                src={icon_mail}
+                alt="mail"
+                width={20}
+                height={20}
+              />
               <p>{contact.mail}</p>
             </div>
             <div className="flex  2xl:flex-row sm:flex-row-reverse gap-4">
               <Image
+                className="object-contain w-6 h-auto"
                 src={icon_location}
                 alt="location"
                 width={20}
@@ -151,7 +162,13 @@ function Footer() {
               <p>{contact.location}</p>
             </div>
             <div className="flex  2xl:flex-row sm:flex-row-reverse gap-4">
-              <Image src={icon_phone} alt="phone" width={20} height={20} />
+              <Image
+                className="object-contain w-6 h-auto"
+                src={icon_phone}
+                alt="phone"
+                width={20}
+                height={20}
+              />
               <p>{contact.phone}</p>
             </div>
           </article>
