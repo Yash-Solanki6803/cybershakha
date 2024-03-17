@@ -44,7 +44,11 @@ const BlogPage = ({ searchParams }) => {
         <h2 className="text-5xl">Popular Categories</h2>
         <div className=" flex flex-wrap justify-between xl:gap-0 gap-4 mt-10">
           {data.categories.map((category) => (
-            <CategoryButton key={category.id} category={category} />
+            <CategoryButton
+              itemType="posts"
+              key={category.id}
+              category={category}
+            />
           ))}
         </div>
       </div>

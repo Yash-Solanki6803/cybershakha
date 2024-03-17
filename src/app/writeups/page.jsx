@@ -3,6 +3,7 @@ import Menu from "@/components/Menu/Menu";
 import Image from "next/image";
 import Link from "next/link";
 import { data } from "@/data";
+import CategoryButton from "@/components/categoryButton/CategoryButton";
 
 const WriteUpPage = ({ searchParams }) => {
   const page = parseInt(searchParams.page) || 1;
@@ -42,13 +43,11 @@ const WriteUpPage = ({ searchParams }) => {
         <h2 className="text-5xl">Popular Categories</h2>
         <div className=" flex flex-wrap justify-between xl:gap-0 gap-4 mt-10">
           {data.categories.map((category) => (
-            <Link
-              className="border text-center border-transparent bg-brand_primary_dark w-44 py-4 px-8 rounded-lg hover:bg-transparent hover:border-brand_primary hover:text-brand_primary transition-all duration-300 ease-in-out cursor-pointer"
+            <CategoryButton
+              itemType="writeups"
               key={category.id}
-              href="/"
-            >
-              {category.name}
-            </Link>
+              category={category}
+            />
           ))}
         </div>
       </div>
