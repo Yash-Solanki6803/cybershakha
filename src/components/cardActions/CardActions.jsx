@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import EditIcon from "../editIcon/EditIcon";
 import DeleteIcon from "../deleteIcon/DeleteIcon";
+import EditorPickIcon from "../editorPickIcon/EditorPickIcon";
 import useUser from "@/store/useUser";
 
 function CardActions({ itemtype = "", item }) {
@@ -13,13 +14,23 @@ function CardActions({ itemtype = "", item }) {
   return (
     <div className="absolute flex gap-4  top-0 right-0 h-full">
       {isAuthor && (
-        <EditIcon
-          itemtype={itemtype}
-          slug={item.slug}
-          width={20}
-          height={20}
-          fill="white"
-        />
+        <>
+          <EditIcon
+            itemtype={itemtype}
+            slug={item.slug}
+            width={20}
+            height={20}
+            fill="white"
+          />
+          <EditorPickIcon
+            width={20}
+            height={20}
+            fill="white"
+            item={item}
+            itemtype={itemtype}
+            className="hover:scale-150"
+          />
+        </>
       )}
       {(isAdmin || isAuthor) && (
         <DeleteIcon

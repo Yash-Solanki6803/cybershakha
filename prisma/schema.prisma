@@ -92,7 +92,7 @@ model WriteUp {
   desc      String
   img       String?
   views     Int       @default(0)
-    pickedByEditor Boolean @default(false) 
+  pickedByEditor Boolean @default(false) 
   catSlug   String
   cat       Category  @relation(fields: [catSlug], references: [slug])
   userEmail String

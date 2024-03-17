@@ -15,7 +15,7 @@ function EditIcon({ width, height, fill, itemtype, slug }) {
         height={height} // Set the desired height
         viewBox="0 0 24 24"
         id="edit"
-        className="hover:fill-orange-400 transition-all duration-150"
+        className="hover:fill-orange-400 transition-all duration-150 cursor-pointer"
         onClick={() => setModalOpen(true)}
       >
         <path fill="none" d="M0 0h24v24H0V0z"></path>

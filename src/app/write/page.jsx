@@ -118,9 +118,9 @@ const WritePage = () => {
       <div className=" my-10 flex md:flex-row flex-col gap-4 justify-between items-center">
         <select
           onChange={(e) => setCatSlug(e.target.value)}
-          className="bg-brand_primary_dark text-center py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+          className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
         >
-          <option defaultValue>Select a category</option>
+          <option defaultValue>Category</option>
           <option value="style">style</option>
           <option value="fashion">fashion</option>
           <option value="food">food</option>
