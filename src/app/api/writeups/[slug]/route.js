@@ -1,3 +1,4 @@
+import { getAuthSession } from "@/utils/auth";
 import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
 
@@ -70,7 +71,7 @@ export const PUT = async (req, { params }) => {
 
   try {
     const body = await req.json();
-    const post = await prisma.post.update({
+    const writeUp = await prisma.writeUp.update({
       where: { slug },
       data: {
         ...body,
@@ -78,7 +79,7 @@ export const PUT = async (req, { params }) => {
       },
     });
 
-    return new NextResponse(JSON.stringify(post, { status: 200 }));
+    return new NextResponse(JSON.stringify(writeUp, { status: 200 }));
   } catch (err) {
     return new NextResponse(
       JSON.stringify({ message: "Something went wrong!" }, { status: 500 })

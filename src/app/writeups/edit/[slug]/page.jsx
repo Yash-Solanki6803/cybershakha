@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import {
@@ -11,6 +10,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
+import Loader from "@/components/loader/loader";
 
 const WriteEditPage = ({ params }) => {
   const { slug } = params;
@@ -24,8 +24,9 @@ const WriteEditPage = ({ params }) => {
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
   const [loading, setLoading] = useState(false);
+  const [oldImage, setOldImage] = useState("");
 
-  let oldImage = "";
+  const ALLOWED_SIZE = 512000; //500kb
 
   useEffect(() => {
     const fetchWriteUp = async () => {
@@ -38,7 +39,7 @@ const WriteEditPage = ({ params }) => {
           const post = await response.json();
           setTitle(post.title);
           setValue(post.desc);
-          oldImage = post.img;
+          setOldImage(post.img);
           setCatSlug(post.catSlug);
         } else {
           console.error("Failed to fetch Writeup:", response.statusText);
@@ -54,6 +55,12 @@ const WriteEditPage = ({ params }) => {
   useEffect(() => {
     const storage = getStorage(app);
     const upload = () => {
+      if (file.size > ALLOWED_SIZE) {
+        alert("File size is too large : Max 500kb");
+        return;
+      }
+      setLoading(true);
+
       const name = new Date().getTime() + file.name;
       const storageRef = ref(storage, name);
 
@@ -80,6 +87,8 @@ const WriteEditPage = ({ params }) => {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setMedia(downloadURL);
+            setOldImage("");
+            setLoading(false);
           });
         }
       );
@@ -104,19 +113,34 @@ const WriteEditPage = ({ params }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+  const extractImageName = (url) => {
+    const parsedUrl = new URL(url);
+    const path = parsedUrl.pathname;
+    const imageName = path.split("/").pop();
+    return imageName;
+  };
+
   const handleSubmit = async () => {
-    if ((media = "")) {
-      setMedia(oldImage);
-    }
-    const res = await fetch(`/api/writeups/${slug}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        title,
+    let bodyObj = JSON.stringify({
+      title,
+      desc: value,
+      // img: media && media,
+      slug: slugify(title),
+      catSlug: catSlug || "style", //If not selected, choose the general category
+    });
+    if (media) {
+      bodyObj = JSON.stringify({
+        title: title,
         desc: value,
         img: media,
         slug: slugify(title),
-        catSlug: catSlug || "style", //If not selected, choose the general category
-      }),
+        catSlug: catSlug || "style",
+      });
+    }
+    console.log(bodyObj);
+    const res = await fetch(`/api/writeups/${slug}`, {
+      method: "PUT",
+      body: bodyObj, //If not selected, choose the general category
     });
 
     if (res.status === 200) {
@@ -130,7 +154,7 @@ const WriteEditPage = ({ params }) => {
       <input
         type="text"
         placeholder="Title"
-        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white"
+        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white outline-none focus:outline-none"
         maxLength={100}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
@@ -138,7 +162,8 @@ const WriteEditPage = ({ params }) => {
       <div className="my-10 flex justify-between">
         <select
           onChange={(e) => setCatSlug(e.target.value)}
-          className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+          className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none text-center"
+          value={catSlug}
         >
           <option defaultValue>Select a category</option>
           <option value="style">style</option>
@@ -148,23 +173,44 @@ const WriteEditPage = ({ params }) => {
           <option value="travel">travel</option>
           <option value="coding">coding</option>
         </select>
-        <input
-          type="file"
-          id="image"
-          onChange={(e) => setFile(e.target.files[0])}
-          style={{ display: "none" }}
-          disabled={loading || (media && file)}
-          accept="image/*"
-        />
-        <button>
-          <label
-            htmlFor="image"
-            className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
-          >
-            {/* <Image src="/image.png" alt="" width={16} height={16} /> */}
-            Add Image
-          </label>
-        </button>
+        {media && file && (
+          <p className="text-xl font-semibold">
+            Image : {file?.name} is uploaded
+          </p>
+        )}
+        {!oldImage && !media && (
+          <p className="text-xl font-semibold">Image : is not uploaded</p>
+        )}
+        {oldImage && (
+          <p className="text-xl font-semibold">
+            Image : {extractImageName(oldImage)} is already uploaded
+          </p>
+        )}
+        {loading && (
+          <div className="text-xl font-thin flex">
+            Uploading <Loader className="ml-10" />
+          </div>
+        )}
+        {!oldImage && (
+          <>
+            <input
+              type="file"
+              id="image"
+              onChange={(e) => setFile(e.target.files[0])}
+              style={{ display: "none" }}
+              disabled={loading || (media && file)}
+              accept="image/*"
+            />
+            <button>
+              <label
+                htmlFor="image"
+                className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+              >
+                Add Image
+              </label>
+            </button>
+          </>
+        )}
       </div>
 
       <textarea

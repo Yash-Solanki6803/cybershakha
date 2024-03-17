@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-// import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
@@ -27,15 +25,20 @@ const WritePage = () => {
   const [catSlug, setCatSlug] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const ALLOWED_SIZE = 512000; //500kb
+
   useEffect(() => {
-    setLoading(true);
     const storage = getStorage(app);
     const upload = () => {
+      if (file.size > ALLOWED_SIZE) {
+        alert("File size is too large : Max 500kb");
+        return;
+      }
+      setLoading(true);
       const name = new Date().getTime() + file.name;
       const storageRef = ref(storage, name);
 
       const uploadTask = uploadBytesResumable(storageRef, file);
-
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -66,7 +69,11 @@ const WritePage = () => {
   }, [file]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <Loader />
+      </div>
+    );
   }
 
   if (status === "unauthenticated") {
@@ -134,17 +141,17 @@ const WritePage = () => {
         <input
           type="file"
           id="image"
+          className="disabled:cursor-not-allowed"
           onChange={(e) => setFile(e.target.files[0])}
           style={{ display: "none" }}
+          disabled={loading || (media && file)}
+          accept="image/*"
         />
-        <button>
-          <label
-            htmlFor="image"
-            className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
-          >
-            {/* <Image src="/image.png" alt="" width={16} height={16} /> */}
-            Add Image
-          </label>
+        <button
+          disabled={loading || (media && file)}
+          className="bg-brand_primary_dark py-4 px-10 disabled:cursor-not-allowed appearance-none rounded-lg cursor-pointer focus:outline-none"
+        >
+          <label htmlFor="image">Add Image</label>
         </button>
       </div>
       <ReactQuill
@@ -156,9 +163,9 @@ const WritePage = () => {
       />
 
       <button
-        disabled={loading || !title || !value || !media || !catSlug}
+        disabled={loading || !title || !value || !catSlug}
         onClick={handleSubmit}
-        className="bg-brand_primary_dark py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary"
+        className="bg-brand_primary_dark py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary disabled:cursor-not-allowed"
       >
         Publish
       </button>

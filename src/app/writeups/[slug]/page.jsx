@@ -19,6 +19,18 @@ const SinglePage = async ({ params }) => {
   const { slug } = params;
 
   const data = await getData(slug);
+  const extractDate = (createdAt) => {
+    const dateObj = new Date(createdAt);
+
+    // Extract the date components
+    const year = dateObj.getFullYear();
+    const month = String(dateObj.getMonth() + 1).padStart(2, "0"); // Adding 1 because getMonth() returns zero-based index
+    const day = String(dateObj.getDate()).padStart(2, "0");
+
+    // Format the date
+    const formattedDate = `${year}-${month}-${day}`;
+    return formattedDate;
+  };
 
   return (
     <div className=" lg:pt-64 pt-52">
@@ -40,7 +52,7 @@ const SinglePage = async ({ params }) => {
                 <Image
                   className="rounded-full"
                   src={data.user.image}
-                  alt=""
+                  alt={`Image of ${data.user.name}`}
                   width={75}
                   height={75}
                 />
@@ -48,7 +60,7 @@ const SinglePage = async ({ params }) => {
             )}
             <div className="ml-4 flex flex-col">
               <span className="text-2xl">{data?.user.name}</span>
-              <span className="font-light">01.01.2024</span>
+              <span className="font-light">{extractDate(data?.createdAt)}</span>
             </div>
             <div className="ml-4 px-6 py-2 bg-gray-700 capitalize rounded-lg">
               {data?.catSlug}
@@ -56,16 +68,18 @@ const SinglePage = async ({ params }) => {
           </div>
         </div>
         {/* IMG */}
-        <div className=" h-full flex flex-col items-start lg:w-1/2  lg:mt-0 mt-10">
-          <Image
-            src={data?.img}
-            alt="Hero Image"
-            className="w-full aspect-video object-cover shadow-2xl hover:shadow-white  rounded-tl-[15%] rounded-br-[15%] transition-all duration-500 ease-in-out"
-            objectFit="cover"
-            width={500}
-            height={500}
-          />
-        </div>
+        {data.img && (
+          <div className=" h-full flex flex-col items-start lg:w-1/2  lg:mt-0 mt-10">
+            <Image
+              src={data?.img}
+              alt={`Image of ${data?.title}`}
+              className="w-full aspect-video object-cover shadow-2xl hover:shadow-white  rounded-tl-[15%] rounded-br-[15%] transition-all duration-500 ease-in-out"
+              objectFit="cover"
+              width={500}
+              height={500}
+            />
+          </div>
+        )}
       </div>
 
       <div className=" w-full flex lg:flex-row flex-col mt-10 lg:gap-10">

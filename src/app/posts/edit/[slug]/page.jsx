@@ -11,6 +11,9 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
+import Loader from "@/components/loader/loader";
+import { htmlToText } from "html-to-text";
+import ReactQuill from "react-quill";
 
 const PostEditPage = ({ params }) => {
   const router = useRouter();
@@ -24,8 +27,7 @@ const PostEditPage = ({ params }) => {
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
   const [loading, setLoading] = useState(false);
-
-  let oldImage = "";
+  const [oldImage, setOldImage] = useState("");
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -35,8 +37,12 @@ const PostEditPage = ({ params }) => {
         if (response.ok) {
           const post = await response.json();
           setTitle(post.title);
-          setValue(post.desc);
-          oldImage = post.img;
+          setValue(
+            htmlToText(post.desc, {
+              wordwrap: null,
+            })
+          );
+          setOldImage(post.img);
           setCatSlug(post.catSlug);
         } else {
           console.error("Failed to fetch Post:", response.statusText);
@@ -52,6 +58,11 @@ const PostEditPage = ({ params }) => {
   useEffect(() => {
     const storage = getStorage(app);
     const upload = () => {
+      if (file.size > ALLOWED_SIZE) {
+        alert("File size is too large : Max 500kb");
+        return;
+      }
+      setLoading(true);
       const name = new Date().getTime() + file.name;
       const storageRef = ref(storage, name);
 
@@ -77,6 +88,8 @@ const PostEditPage = ({ params }) => {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setMedia(downloadURL);
+            setOldImage("");
+            setLoading(false);
           });
         }
       );
@@ -101,21 +114,35 @@ const PostEditPage = ({ params }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+  const extractImageName = (url) => {
+    const parsedUrl = new URL(url);
+    const path = parsedUrl.pathname;
+    const imageName = path.split("/").pop();
+    return imageName;
+  };
+
   const handleSubmit = async () => {
-    if ((media = "")) {
-      setMedia(oldImage);
-    }
-    const res = await fetch(`/api/posts/${slug}`, {
-      method: "PUT",
-      body: JSON.stringify({
+    let bodyObj = JSON.stringify({
+      title,
+      desc: value,
+      // img: media && media,
+      slug: slugify(title),
+      catSlug: catSlug || "style", //If not selected, choose the general category
+    });
+
+    if (media) {
+      bodyObj = JSON.stringify({
         title,
         desc: value,
         img: media,
         slug: slugify(title),
-        catSlug: catSlug || "style", //If not selected, choose the general category
-      }),
+        catSlug: catSlug || "style",
+      });
+    }
+    const res = await fetch(`/api/posts/${slug}`, {
+      method: "PUT",
+      body: bodyObj,
     });
-
     if (res.status === 200) {
       const data = await res.json();
       router.push(`/posts/${data.slug}`);
@@ -128,14 +155,15 @@ const PostEditPage = ({ params }) => {
         type="text"
         placeholder="Title"
         value={title}
-        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white"
+        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white outline-none focus:outline-none"
         maxLength={100}
         onChange={(e) => setTitle(e.target.value)}
       />
       <div className=" my-10 flex items-center justify-between">
         <select
           onChange={(e) => setCatSlug(e.target.value)}
-          className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+          className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none text-center"
+          value={catSlug}
         >
           <option defaultValue>Select a category</option>
           <option value="style">style</option>
@@ -150,36 +178,48 @@ const PostEditPage = ({ params }) => {
             Image : {file?.name} is uploaded
           </p>
         )}
-        {!media && (
+        {!oldImage && !media && (
+          <p className="text-xl font-semibold">Image : is not uploaded</p>
+        )}
+        {oldImage && (
           <p className="text-xl font-semibold">
-            Image : {oldImage} is already uploaded
+            Image : {extractImageName(oldImage)} is already uploaded
           </p>
         )}
-        <input
-          type="file"
-          id="image"
-          onChange={(e) => setFile(e.target.files[0])}
-          style={{ display: "none" }}
-          disabled={loading || (media && file)}
-          accept="image/*"
-        />
-        <button>
-          <label
-            htmlFor="image"
-            className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
-          >
-            {/* <Image src="/image.png" alt="" width={16} height={16} /> */}
-            Add Image
-          </label>
-        </button>
+        {loading && (
+          <div className="text-xl font-thin flex">
+            Uploading <Loader className="ml-10" />
+          </div>
+        )}
+        {!oldImage && (
+          <>
+            <input
+              type="file"
+              id="image"
+              onChange={(e) => setFile(e.target.files[0])}
+              style={{ display: "none" }}
+              disabled={loading || (media && file)}
+              accept="image/*"
+            />
+            <button>
+              <label
+                htmlFor="image"
+                className="bg-brand_primary_dark py-4 px-10 appearance-none rounded-lg cursor-pointer focus:outline-none"
+              >
+                Add Image
+              </label>
+            </button>
+          </>
+        )}
       </div>
 
-      <textarea
-        placeholder="Tell your story..."
+      <ReactQuill
+        theme="bubble"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
-        className="bg-transparent w-full h-[50vh] placeholder:text-white placeholder:text-xl text-xl cursor-text p-4 focus:outline-none "
-      ></textarea>
+        onChange={setValue}
+        placeholder="Tell your story..."
+        className="h-[50vh] "
+      />
       <button
         disabled={!value || !title || loading}
         onClick={handleSubmit}

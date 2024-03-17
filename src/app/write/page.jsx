@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
-// import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
-import "react-quill/dist/quill.bubble.css";
+// import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import {
@@ -32,7 +30,7 @@ const WritePage = () => {
     const storage = getStorage(app);
     const upload = () => {
       if (file.size > ALLOWED_SIZE) {
-        alert("File size is too large");
+        alert("File size is too large : Max 500kb");
         return;
       }
       setLoading(true);
@@ -71,7 +69,11 @@ const WritePage = () => {
   }, [file]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <Loader />
+      </div>
+    );
   }
 
   if (status === "unauthenticated") {
@@ -130,15 +132,16 @@ const WritePage = () => {
           <p className="text-xl font-thin">Image {file.name} uploaded</p>
         )}
         {loading && (
-          <p className="text-xl font-thin flex">
+          <div className="text-xl font-thin flex">
             Uploading <Loader className="ml-10" />
-          </p>
+          </div>
         )}
         <input
           type="file"
           id="image"
           onChange={(e) => setFile(e.target.files[0])}
           style={{ display: "none" }}
+          className="disabled:cursor-not-allowed"
           disabled={loading || (media && file)}
           accept="image/*"
         />
@@ -146,10 +149,7 @@ const WritePage = () => {
           disabled={loading || (media && file)}
           className="bg-brand_primary_dark py-4 px-10 disabled:cursor-not-allowed appearance-none rounded-lg cursor-pointer focus:outline-none"
         >
-          <label htmlFor="image">
-            {/* <Image src="/image.png" alt="" width={16} height={16} /> */}
-            Add Image
-          </label>
+          <label htmlFor="image">Add Image</label>
         </button>
       </div>
 
@@ -160,7 +160,7 @@ const WritePage = () => {
         className="bg-transparent w-full h-[50vh] placeholder:text-white placeholder:text-xl text-xl cursor-text p-4 focus:outline-none "
       ></textarea>
       <button
-        disabled={loading || !title || !value || !media || !catSlug}
+        disabled={loading || !title || !value || !catSlug}
         onClick={handleSubmit}
         className="bg-brand_primary_dark disabled:cursor-not-allowed mt-10 py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary"
       >

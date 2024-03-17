@@ -13,9 +13,13 @@ function CardActions({ itemtype = "", item }) {
   return (
     <div className="absolute flex gap-4  top-0 right-0 h-full">
       {isAuthor && (
-        <Link href={`/${itemtype}/edit/${item.slug}`}>
-          <EditIcon width={20} height={20} fill="white" />
-        </Link>
+        <EditIcon
+          itemtype={itemtype}
+          slug={item.slug}
+          width={20}
+          height={20}
+          fill="white"
+        />
       )}
       {(isAdmin || isAuthor) && (
         <DeleteIcon
