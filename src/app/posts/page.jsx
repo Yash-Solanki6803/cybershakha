@@ -5,6 +5,7 @@ import CategoryButton from "@/components/categoryButton/CategoryButton";
 import Image from "next/image";
 import Link from "next/link";
 import { data } from "@/data";
+import TopPost from "@/components/topBlog/TopBlog";
 
 const BlogPage = ({ searchParams }) => {
   const page = parseInt(searchParams.page) || 1;
@@ -21,24 +22,7 @@ const BlogPage = ({ searchParams }) => {
             Digital Landscape
           </p>
         </div>
-        <div className=" h-full flex flex-col items-start lg:w-1/2 mt-10">
-          <Image
-            src="/images/typing.png"
-            alt="Hero Image"
-            className="w-full aspect-video object-cover shadow-2xl hover:shadow-white  rounded-tl-[15%] rounded-br-[15%] transition-all duration-500 ease-in-out"
-            width={500}
-            height={500}
-          />
-          <h3 className="mt-10 xl:text-4xl lg:text-3xl text-xl">
-            Lorem ipsum dolor sit amet alim consectetur adipisicing elit.{" "}
-          </h3>
-          <Link
-            href="/"
-            className="mt-10 bg-brand_primary_dark px-16 py-4 rounded-lg hover:bg-transparent hover:text-brand_primary border  border-transparent transition-all duration-300 ease-in-out hover:border-brand_primary"
-          >
-            Read More
-          </Link>
-        </div>
+        <TopPost itemType="posts" />
       </div>
       <div className="mt-10 flex flex-col">
         <h2 className="text-5xl">Popular Categories</h2>

@@ -11,7 +11,7 @@ const getData = async ({ itemType, postType }) => {
 
   return res.json();
 };
-const MenuPosts = async ({ itemType = "", postType = "" }) => {
+const MenuPosts = async ({ itemType = "posts", postType = "popular" }) => {
   const { posts } = await getData({ itemType, postType });
   return (
     <div>
