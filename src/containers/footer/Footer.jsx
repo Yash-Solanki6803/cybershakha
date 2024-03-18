@@ -40,7 +40,7 @@ const contact = {
 function Footer() {
   return (
     <section
-      id="footer"
+      id="contact"
       className=" flex 2xl:flex-row flex-col gap-4 min-h-[50vh] mt-20 py-10 relative overflow-hidden"
     >
       {/* social and quick links */}
@@ -122,15 +122,21 @@ function Footer() {
             </Link>
             <Link
               className=" hover:text-brand_primary transition-all duration-300 cursor-pointer block"
-              href="/privacy"
+              href="/privacypolicy"
             >
               Privacy Policy
             </Link>
             <Link
               className=" hover:text-brand_primary transition-all duration-300 cursor-pointer block"
-              href="/terms"
+              href="/termsofservice"
             >
-              Terms and Conditions
+              Terms of Service
+            </Link>
+            <Link
+              className=" hover:text-brand_primary transition-all duration-300 cursor-pointer block"
+              href="/disclaimer"
+            >
+              Website Disclaimer
             </Link>
           </nav>
         </div>

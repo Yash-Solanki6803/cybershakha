@@ -72,7 +72,7 @@ const SinglePage = async ({ params }) => {
 
       <div className=" w-full flex lg:flex-row flex-col mt-10 lg:gap-10">
         <div className=" lg:w-2/3 min-h-[50vh] md:pr-10 lg:border-r flex flex-col items-center justify-between">
-          <div className="text-white prose prose-2xl prose-neutral w-full prose-headings:text-white prose-p:text-white prose-a:text-brand_primary prose-blockquote:text-slate-400 prose-code:text-green-300">
+          <div className="text-white prose prose-2xl prose-neutral w-full prose-headings:text-white prose-p:text-white prose-a:text-brand_primary prose-blockquote:text-slate-400 prose-code:text-green-300 prose-strong:text-brand_primary">
             <Markdown>{data?.desc}</Markdown>
           </div>
 
