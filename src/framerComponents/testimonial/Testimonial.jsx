@@ -1,13 +1,22 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 function Testimonial({
   image = "/clients/Image1.jpg",
   name = "Miss Sammy Feeney",
   position = "HOD , at ABC",
   rating = 5,
   text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet saepe provident nobis, porro optio vero perferendis nostrum velit aliquam inventore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, optio.",
+  delay,
 }) {
   return (
-    <div className=" flex flex-col gap-2 lg:w-full  rounded-lg sm:h-[250px] sm:w-3/4 p-4 bg-black_light">
+    <motion.div
+      className=" flex flex-col gap-2 lg:w-full  rounded-lg sm:h-[250px] sm:w-3/4 p-4 bg-black_light"
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.5 * delay }}
+    >
       <div className="h-1/2 ">
         <p>{text}</p>
       </div>
@@ -36,7 +45,7 @@ function Testimonial({
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

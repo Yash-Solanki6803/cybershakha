@@ -1,5 +1,5 @@
 import React from "react";
-import Testimonial from "../../components/testimonial/Testimonial";
+import Testimonial from "../../framerComponents/testimonial/Testimonial";
 import VectorComponent from "../../components/vector/Vector";
 import { Image1, Image2, Image3, Image4 } from "@/../public/clients";
 
@@ -27,24 +27,28 @@ function TestimonialSection() {
           name="Miss Sammy Feeney"
           position="Investor Metrics Executive"
           rating={5}
+          delay={0}
         />
         <Testimonial
           image={Image2}
           name="Rosemary Mante"
           position="Human Integration Agent"
           rating={5}
+          delay={1}
         />
         <Testimonial
           image={Image3}
           name="Regina Weissnat"
           position="Regional Branding Consultant"
           rating={5}
+          delay={2}
         />
         <Testimonial
           image={Image4}
           name="Marianne Bode"
           position="Investor Metrics Executive"
           rating={5}
+          delay={3}
         />
       </div>
       <VectorComponent size={4} className="-left-[200px] rotate-180" />

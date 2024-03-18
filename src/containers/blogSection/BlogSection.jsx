@@ -1,7 +1,7 @@
 import Image from "next/image";
 import VectorComponent from "../../components/vector/Vector";
 import Highlighter from "../../components/highlighter/Highlighter";
-import CategoryCard from "../../components/categoryCard/CategoryCard";
+import CategoryCard from "../../framerComponents/categoryCard/CategoryCard";
 import {
   icon_training,
   icon_threat,
@@ -40,21 +40,25 @@ function BlogSection() {
               src={icon_customize}
               title="Customized Security Solutions"
               desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              delay={0}
             />
             <CategoryCard
               src={icon_threat}
               title="Vulnerability Assessment"
               desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              delay={1}
             />
             <CategoryCard
               src={icon_service}
               title="24/7 Incident Response"
               desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              delay={2}
             />
             <CategoryCard
               src={icon_training}
               title="User Training Programs"
               desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              delay={3}
             />
           </div>
         </div>

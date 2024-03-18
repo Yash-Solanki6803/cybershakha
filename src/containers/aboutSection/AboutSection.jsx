@@ -2,7 +2,8 @@ import Image from "next/image";
 import Button from "../../components/button/Button";
 import Highlighter from "../../components/highlighter/Highlighter";
 import VectorComponent from "../../components/vector/Vector";
-
+import MatrixImage from "@/framerComponents/matrixImage/MatrixImage";
+import TypingImage from "@/framerComponents/typingImage/TypingImage";
 function AboutSection() {
   return (
     <section
@@ -12,27 +13,8 @@ function AboutSection() {
       {/* images */}
       <div className=" animate-pulse hidden lg:flex lg:flex-auto flex-col xl:w-[45%] lg:w-1/2 justify-start items-start py-24 relative">
         <Highlighter size={3} className="top-1/3 left-1/2 -translate-x-1/2" />
-        <div
-          className=" h-3/5 w-3/5 absolute flex items-center rounded-lg shadow-lg hover:shadow-black  hover:scale-105 transition-all duration-700
-        "
-        >
-          <Image
-            src="/images/matrix.png"
-            alt="Picture of a matrix"
-            className="w-full h-full object-cover rounded-lg"
-            width={400}
-            height={400}
-          />
-        </div>
-        <div className=" h-3/5 w-3/5 absolute bottom-24 xl:right-10 rounded-lg shadow-lg hover:shadow-black   hover:scale-105 transition-all duration-700">
-          <Image
-            src="/images/typing.png"
-            alt="Picture of a matrix"
-            className="w-full h-full object-cover rounded-lg"
-            width={400}
-            height={400}
-          />
-        </div>
+        <MatrixImage />
+        <TypingImage />
       </div>
       {/* text */}
       <div className=" flex flex-col flex-auto lg:w-1/2 xl:w-[55%] lg:justify-start justify-around lg:items-start xl:px-14 lg:px-10 ">

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Button from "../../components/button/Button";
-
+import LockImage from "@/framerComponents/lockImage/LockImage";
 function HeroComponent() {
   return (
     <section
@@ -22,15 +22,7 @@ function HeroComponent() {
         </div>
         <Button className="mt-10 text-center">Contact us!</Button>
       </div>
-      <div className=" flex flex-auto lg:mt-0 mt-10 xl:w-2/5 lg:w-1/2 lg:justify-end justify-center relative">
-        <Image
-          src="/images/lock.png"
-          alt="Picture of a lock"
-          className="lg:w-full w-3/4 object-contain hover:customDropShadow transition-all duration-500 hover:translate-x-6 hover:translate-y-6 hover:scale-105"
-          width={400}
-          height={400}
-        />
-      </div>
+      <LockImage />
     </section>
   );
 }

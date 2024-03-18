@@ -1,4 +1,4 @@
-import ServiceCard from "../../components/serviceCard/ServiceCard";
+import ServiceCard from "../../framerComponents/serviceCard/ServiceCard";
 import { icon_eye, icon_lock, icon_time } from "../../../public/icons";
 import Link from "next/link";
 
@@ -46,7 +46,7 @@ function ServiceSection({ services = defaultServices }) {
         </div>
 
         {services.map((service, index) => (
-          <ServiceCard key={index} {...service} />
+          <ServiceCard key={index} {...service} delay={index} />
         ))}
       </div>
     </section>
