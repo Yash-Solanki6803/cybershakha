@@ -44,13 +44,13 @@ const Comments = ({ writeUpSlug }) => {
       {status === "authenticated" ? (
         <div className=" flex">
           <textarea
-            className="text-black text-xl rounded-tl-3xl rounded-bl-3xl p-4 w-full outline-none focus:outline-none"
+            className="text-black md:text-xl rounded-tl-3xl rounded-bl-3xl p-2 w-full outline-none focus:outline-none"
             placeholder="Write a comment..."
             maxLength={200}
             onChange={(e) => setDesc(e.target.value)}
           />
           <button
-            className="border border-transparent rounded-tr-3xl rounded-br-3xl bg-brand_primary_dark px-10 text-xl text-white cursor-pointer"
+            className="border border-transparent rounded-tr-3xl rounded-br-3xl bg-brand_primary_dark px-10 md:text-xl text-white cursor-pointer"
             onClick={handleSubmit}
           >
             Send
@@ -62,26 +62,29 @@ const Comments = ({ writeUpSlug }) => {
       <div>
         {isLoading
           ? "loading"
-          : data?.map((item) => (
-              <div className="border-t mt-10 flex py-6 " key={item._id}>
-                <div className="mt-2 flex gap-4 pr-4 border-r">
+          : data?.map((item, index) => (
+              <div
+                className="border-t mt-10 flex py-6  md:flex-row flex-col"
+                key={index}
+              >
+                <div className="mt-2 flex gap-4 pr-4 md:border-r">
                   {item?.user?.image && (
                     <Image
-                      className="rounded-full"
+                      className="rounded-full w-12 h-12"
                       src={item.user.image}
-                      alt=""
-                      width={50}
-                      height={50}
+                      alt="Image of author of the comment"
+                      width={500}
+                      height={500}
                     />
                   )}
                   <div className="flex flex-col">
                     <span className="font-bold">{item.user.name}</span>
-                    <span className="font-thin text-sm">
+                    <span className="font-thin text-sm ">
                       {extractDate(item.createdAt)}
                     </span>
                   </div>
                 </div>
-                <p className="text-lg pl-4 mt-4">{item.desc}</p>
+                <p className="text-lg md:pl-4 mt-4">{item.desc}</p>
               </div>
             ))}
       </div>

@@ -18,6 +18,7 @@ function BlogSection() {
       <div className=" xl:w-[45%] lg:w-2/5 ">
         <Image
           className="object-cover w-full lg:h-full rounded-tr-[300px] rounded-bl-[100px] hover:shadow-2xl hover:shadow-slate-600 transition-all duration-300"
+          alt="Image of a person working on a laptop"
           src="/images/person_working.png"
           width={500}
           height={500}

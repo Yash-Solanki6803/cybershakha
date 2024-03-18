@@ -11,14 +11,14 @@ export default function ResponsiveNav() {
   return (
     <div
       className={classNames(
-        "h-[100vh] w-[60vw] fixed  top-0  bg-brand_black py-32 px-12 flex flex-col gap-24 transition-all duration-300",
+        "h-[100vh] w-[60vw] fixed  top-0  bg-brand_black py-32 md:px-12 px-6 flex flex-col gap-24 transition-all duration-300",
         {
           "-right-[2000px]": !open,
           "right-0": open,
         }
       )}
     >
-      <div className="bg-glass p-3 rounded-[2rem] gap-9 flex flex-col ">
+      <div className="bg-glass p-3 rounded-[2rem] sm:gap-9 flex flex-col ">
         <Navlink href="/">Home</Navlink>
         <Navlink href="/posts">Blogs</Navlink>
         <Navlink href="/writeups">Write Ups</Navlink>

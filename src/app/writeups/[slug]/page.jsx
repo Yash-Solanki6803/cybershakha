@@ -63,7 +63,6 @@ const SinglePage = async ({ params }) => {
               src={data?.img}
               alt={`Image of ${data?.title}`}
               className="w-full aspect-video object-cover shadow-2xl hover:shadow-white  rounded-tl-[15%] rounded-br-[15%] transition-all duration-500 ease-in-out"
-              objectFit="cover"
               width={500}
               height={500}
             />
