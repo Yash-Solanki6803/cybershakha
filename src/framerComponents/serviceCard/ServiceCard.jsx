@@ -10,6 +10,7 @@ function ServiceCard({ src, title, description, delay }) {
       initial={{ opacity: 0, y: 300 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: delay * 0.2 }}
+      viewport={{ margin: "200px" }}
     >
       <div className="bg-black lg:size-20 size-14 rounded-full flex items-center justify-center absolute border-2 border-brand_primary top-0 left-0 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2  hover:scale-105 hover:shadow-lg hover:shadow-slate-700 transition-all duration-200 ">
         <Image
