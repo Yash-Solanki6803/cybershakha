@@ -57,7 +57,12 @@ const Comments = ({ writeUpSlug }) => {
           </button>
         </div>
       ) : (
-        <Link href="/login">Login to write a comment</Link>
+        <Link
+          href="/login"
+          className="border border-transparent block px-10 py-4 rounded-xl bg-red-500 text-lg text-center hover:border-brand_primary hover:bg-transparent transition-all duration-300"
+        >
+          Login to write a comment
+        </Link>
       )}
       <div>
         {isLoading

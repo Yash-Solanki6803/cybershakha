@@ -4,7 +4,7 @@ import Image from "next/image";
 function LockImage() {
   return (
     <motion.div
-      className=" flex flex-auto lg:mt-0 mt-10 xl:w-2/5 lg:w-1/2 lg:justify-end justify-center relative"
+      className="hidden lg:flex flex-auto lg:mt-0 mt-10 xl:w-2/5 lg:w-1/2 lg:justify-end justify-center relative"
       initial={{ x: 400, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       transition={{
@@ -14,6 +14,7 @@ function LockImage() {
         type: "spring",
         bounce: 0.5,
       }}
+      viewport={{ once: true }}
     >
       <Image
         src="/images/lock.png"

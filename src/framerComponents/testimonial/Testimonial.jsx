@@ -15,7 +15,7 @@ function Testimonial({
       className=" flex flex-col gap-2 lg:w-full  rounded-lg sm:h-[250px] sm:w-3/4 p-4 bg-black_light"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 0.5 * delay }}
+      transition={{ duration: 1, delay: 1 * delay }}
     >
       <div className="h-1/2 ">
         <p>{text}</p>
