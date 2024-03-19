@@ -1,14 +1,11 @@
 "use client";
 import Navlink from "../navLink/NavLink";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import useUser from "@/store/useUser";
 import { signOut, useSession } from "next-auth/react";
 
 export default function AuthLinks() {
-  //   const [open, setOpen] = useState(false);
-
   const { status, data } = useSession();
-  // const [user, setUser] = useState(null);
   const { user, setUser } = useUser();
 
   useEffect(() => {
