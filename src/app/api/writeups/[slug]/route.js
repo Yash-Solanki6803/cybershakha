@@ -26,7 +26,7 @@ export const GET = async (req, { params }) => {
 export const DELETE = async (req, { params }) => {
   const { slug } = params;
   const session = await getAuthSession();
-  // const { user } = useUser();
+  console.log("Api delete called");
 
   if (!session) {
     return new NextResponse(
@@ -40,10 +40,11 @@ export const DELETE = async (req, { params }) => {
     const canDelete = true;
 
     if (canDelete) {
-      await prisma.writeUp.delete({
+      console.log("Deleting WriteUp");
+      const res = await prisma.writeUp.delete({
         where: { slug },
       });
-
+      console.log(res);
       return new NextResponse(
         JSON.stringify(
           { message: "WriteUp deleted successfully" },

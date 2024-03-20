@@ -2,10 +2,14 @@
 import { useState } from "react";
 import { close } from "@/../public/icons";
 import Image from "next/image";
-function DeleteIcon({ width, height, fill, item, itemtype = "posts" }) {
+import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
+
+function DeleteIcon({ width, height, fill, item, itemtype = "" }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const router = useRouter();
   const handleDeleteClick = async () => {
-    console.log("Deleting post:", item.slug);
+    console.log("Deleting post:", item.slug, itemtype);
     try {
       const response = await fetch(`/api/${itemtype}/${item.slug}`, {
         method: "DELETE",
@@ -44,7 +48,7 @@ function DeleteIcon({ width, height, fill, item, itemtype = "posts" }) {
         </svg>
       </span>
       {modalOpen && (
-        <div className="border rounded-xl  bg-white w-[350px] h-[200px] p-4 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="border rounded-xl  bg-white w-[350px] min-h-[200px] p-4 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="flex justify-end">
             <span>
               <Image

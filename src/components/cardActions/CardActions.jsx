@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
 import EditIcon from "../editIcon/EditIcon";
 import DeleteIcon from "../deleteIcon/DeleteIcon";

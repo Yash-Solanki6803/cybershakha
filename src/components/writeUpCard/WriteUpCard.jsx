@@ -6,10 +6,9 @@ import DeleteIcon from "../deleteIcon/DeleteIcon";
 import EditIcon from "../editIcon/EditIcon";
 import CardActions from "../cardActions/CardActions";
 import Markdown from "markdown-to-jsx";
-const WriteUpCard = ({ key, item, isInverted = false }) => {
+const WriteUpCard = ({ item, isInverted = false }) => {
   return (
     <div
-      key={key}
       className={classNames(" flex flex-col  gap-10 my-10", {
         "md:flex-row-reverse": isInverted,
         "md:flex-row": !isInverted,

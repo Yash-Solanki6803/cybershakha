@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
 
-function SingleMenuPost({ item, key }) {
+function SingleMenuPost({ itemType = "", item, key }) {
   return (
     <Link
       key={key}
       className=" my-4 py-1 block border-b border-transparent hover:border-white transition-all duration-300"
-      href="#"
+      href={`/${itemType}/${item?.slug}`}
     >
       <div key={key} className="my-4 py-1 block">
         <span className="text-sm px-4 py-1 rounded-md bg-gray-700">

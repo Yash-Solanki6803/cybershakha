@@ -16,7 +16,7 @@ const MenuPosts = async ({ itemType = "posts", postType = "popular" }) => {
   return (
     <div>
       {posts?.map((item, index) => (
-        <SingleMenuPost item={item} key={index} />
+        <SingleMenuPost itemType={itemType} item={item} key={index} />
       ))}
     </div>
   );
