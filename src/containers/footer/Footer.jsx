@@ -116,7 +116,7 @@ function Footer() {
             </Link>
             <Link
               className=" hover:text-brand_primary transition-all duration-300 cursor-pointer block"
-              href="/blogs"
+              href="/posts"
             >
               Blogs
             </Link>

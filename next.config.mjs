@@ -1,7 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["lh3.googleusercontent.com", "firebasestorage.googleapis.com"],
+    remotePatterns: [
+      {
+        hostname: "lh3.googleusercontent.com",
+        pathname: "**",
+      },
+      {
+        hostname: "firebasestorage.googleapis.com",
+        pathname: "**",
+      },
+    ],
   },
 };
 

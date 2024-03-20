@@ -10,8 +10,10 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
+import dynamic from "next/dynamic";
 import { app } from "@/utils/firebase";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import Loader from "@/components/loader/loader";
 import { data } from "@/data";
 
@@ -77,7 +79,7 @@ const WritePage = () => {
     );
   }
 
-  if (status === "unauthenticated") {
+  if (status === "unauthenticated" && typeof window !== "undefined") {
     router.push("/");
   }
 

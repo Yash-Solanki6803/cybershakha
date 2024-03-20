@@ -77,7 +77,7 @@ const WritePage = () => {
     );
   }
 
-  if (status === "unauthenticated") {
+  if (status === "unauthenticated" && typeof window !== "undefined") {
     router.push("/");
   }
 
