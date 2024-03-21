@@ -11,6 +11,7 @@ import {
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
 import Loader from "@/components/loader/loader";
+import { data } from "@/data";
 
 const WriteEditPage = ({ params }) => {
   const { slug } = params;
@@ -166,12 +167,15 @@ const WriteEditPage = ({ params }) => {
           value={catSlug}
         >
           <option defaultValue>Select a category</option>
-          <option value="style">style</option>
-          <option value="fashion">fashion</option>
-          <option value="food">food</option>
-          <option value="culture">culture</option>
-          <option value="travel">travel</option>
-          <option value="coding">coding</option>
+          {data.categories.map((category, index) => (
+            <option
+              className="text-left"
+              value={category.name}
+              key={category.id}
+            >
+              {category.name}
+            </option>
+          ))}
         </select>
         {media && file && (
           <p className="text-xl font-semibold">
