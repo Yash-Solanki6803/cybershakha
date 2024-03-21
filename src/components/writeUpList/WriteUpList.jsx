@@ -40,7 +40,7 @@ const WriteUpList = async ({ page, cat }) => {
 
       <div>
         {writeUps?.map((item, index) => (
-          <WriteUpCard isInverted={index % 2 != 0} item={item} key={item._id} />
+          <WriteUpCard isInverted={index % 2 != 0} item={item} key={index} />
         ))}
       </div>
       <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />
