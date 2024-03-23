@@ -13,6 +13,7 @@ import {
 import { app } from "@/utils/firebase";
 import Loader from "@/components/loader/loader";
 import { data } from "@/data";
+import useToast from "@/utils/useToast";
 
 const WritePage = () => {
   const { status } = useSession();
@@ -24,6 +25,8 @@ const WritePage = () => {
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showToast, showToastWithTimeout, Toast] = useToast();
+  const [toastContent, setToastContent] = useState({});
 
   const ALLOWED_SIZE = 512000; //500kb
 
@@ -103,12 +106,26 @@ const WritePage = () => {
 
     if (res.status === 200) {
       const data = await res.json();
+      showToastWithTimeout();
+      setToastContent({
+        title: "Writeup uploaded successfully",
+        type: "success",
+      });
       router.push(`/writeups/${data.slug}`);
+    } else {
+      showToastWithTimeout();
+      setToastContent({
+        title: "Failed to upload writeup",
+        type: "error",
+      });
     }
   };
 
   return (
     <div className="pt-40">
+      {showToast && (
+        <Toast title={toastContent.title} type={toastContent.type} />
+      )}
       <input
         type="text"
         placeholder="Title"

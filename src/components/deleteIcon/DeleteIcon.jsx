@@ -3,10 +3,12 @@ import { useState } from "react";
 import { close } from "@/../public/icons";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
+import useToast from "@/utils/useToast";
 
 function DeleteIcon({ width, height, fill, item, itemtype = "" }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [showToast, showToastWithTimeout, Toast] = useToast();
+  const [toastContent, setToastContent] = useState({});
   const router = useRouter();
   const handleDeleteClick = async () => {
     console.log("Deleting post:", item.slug, itemtype);
@@ -21,9 +23,19 @@ function DeleteIcon({ width, height, fill, item, itemtype = "" }) {
       if (response.status === 200) {
         // Handle successful deletion
         console.log("Post deleted successfully");
+        showToastWithTimeout();
+        setToastContent({
+          title: "Post deleted successfully",
+          type: "success",
+        });
       } else {
         // Handle error
         console.error("Failed to delete post");
+        showToastWithTimeout();
+        setToastContent({
+          title: "Failed to delete post",
+          type: "error",
+        });
       }
       setModalOpen(false);
     } catch (error) {
@@ -33,6 +45,9 @@ function DeleteIcon({ width, height, fill, item, itemtype = "" }) {
   };
   return (
     <>
+      {showToast && (
+        <Toast title={toastContent.title} type={toastContent.type} />
+      )}
       <span onClick={() => setModalOpen(true)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

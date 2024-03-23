@@ -23,6 +23,7 @@ export const GET = async (req) => {
       prisma.writeUp.findMany(query),
       prisma.writeUp.count({ where: query.where }),
     ]);
+    writeUps.reverse();
     return new NextResponse(
       JSON.stringify({ writeUps, count }, { status: 200 })
     );

@@ -12,6 +12,7 @@ import {
 import { app } from "@/utils/firebase";
 import Loader from "@/components/loader/loader";
 import { data } from "@/data";
+import useToast from "@/utils/useToast";
 
 const WriteEditPage = ({ params }) => {
   const { slug } = params;
@@ -26,6 +27,8 @@ const WriteEditPage = ({ params }) => {
   const [catSlug, setCatSlug] = useState("");
   const [loading, setLoading] = useState(false);
   const [oldImage, setOldImage] = useState("");
+  const [showToast, showToastWithTimeout, Toast] = useToast();
+  const [toastContent, setToastContent] = useState({});
 
   const ALLOWED_SIZE = 512000; //500kb
 
@@ -138,7 +141,6 @@ const WriteEditPage = ({ params }) => {
         catSlug: catSlug || "style",
       });
     }
-    console.log(bodyObj);
     const res = await fetch(`/api/writeups/${slug}`, {
       method: "PUT",
       body: bodyObj, //If not selected, choose the general category
@@ -146,12 +148,26 @@ const WriteEditPage = ({ params }) => {
 
     if (res.status === 200) {
       const data = await res.json();
+      showToastWithTimeout();
+      setToastContent({
+        title: "Writeup updated successfully",
+        type: "success",
+      });
       router.push(`/writeups/${data.slug}`);
+    } else {
+      showToastWithTimeout();
+      setToastContent({
+        title: "Writeup update failed",
+        type: "error",
+      });
     }
   };
 
   return (
     <div className="pt-40">
+      {showToast && (
+        <Toast title={toastContent.title} type={toastContent.type} />
+      )}
       <input
         type="text"
         placeholder="Title"

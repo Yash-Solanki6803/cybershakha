@@ -15,6 +15,7 @@ import Loader from "@/components/loader/loader";
 import { htmlToText } from "html-to-text";
 import ReactQuill from "react-quill";
 import { data } from "@/data";
+import useToast from "@/utils/useToast";
 
 const PostEditPage = ({ params }) => {
   const router = useRouter();
@@ -29,6 +30,8 @@ const PostEditPage = ({ params }) => {
   const [catSlug, setCatSlug] = useState("");
   const [loading, setLoading] = useState(false);
   const [oldImage, setOldImage] = useState("");
+  const [showToast, showToastWithTimeout, Toast] = useToast();
+  const [toastContent, setToastContent] = useState({});
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -147,6 +150,17 @@ const PostEditPage = ({ params }) => {
     if (res.status === 200) {
       const data = await res.json();
       router.push(`/posts/${data.slug}`);
+      showToastWithTimeout();
+      setToastContent({
+        title: "Post updated successfully",
+        type: "success",
+      });
+    } else {
+      showToastWithTimeout();
+      setToastContent({
+        title: "Failed to update post",
+        type: "error",
+      });
     }
   };
 
