@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 const getData = async ({ itemType }) => {
-  const res = await fetch(`http://localhost:3000/api/${itemType}/editorpicks`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.WEB_DOMAIN}/api/${itemType}/editorpicks`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed");

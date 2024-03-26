@@ -36,7 +36,7 @@ const WriteEditPage = ({ params }) => {
     const fetchWriteUp = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/writeups/${slug}`
+          `${process.env.WEB_DOMAIN}/api/writeups/${slug}`
         );
 
         if (response.ok) {

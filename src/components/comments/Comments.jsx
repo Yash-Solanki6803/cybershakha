@@ -24,7 +24,7 @@ const Comments = ({ writeUpSlug }) => {
   const { status } = useSession();
 
   const { data, mutate, isLoading } = useSWR(
-    `http://localhost:3000/api/comments?writeUpSlug=${writeUpSlug}`,
+    `${process.env.WEB_DOMAIN}/api/comments?writeUpSlug=${writeUpSlug}`,
     fetcher
   );
 

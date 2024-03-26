@@ -36,7 +36,9 @@ const PostEditPage = ({ params }) => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/posts/${slug}`);
+        const response = await fetch(
+          `${process.env.WEB_DOMAIN}/api/posts/${slug}`
+        );
 
         if (response.ok) {
           const post = await response.json();

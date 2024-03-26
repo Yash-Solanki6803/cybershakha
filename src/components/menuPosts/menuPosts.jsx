@@ -1,9 +1,12 @@
 import SingleMenuPost from "../singleMenuPost/SingleMenuPost";
 
 const getData = async ({ itemType, postType }) => {
-  const res = await fetch(`http://localhost:3000/api/${itemType}/${postType}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.WEB_DOMAIN}/api/${itemType}/${postType}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed");
