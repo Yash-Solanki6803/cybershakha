@@ -24,7 +24,7 @@ const Comments = ({ writeUpSlug }) => {
   const { status } = useSession();
 
   const { data, mutate, isLoading } = useSWR(
-    `${process.env.WEB_DOMAIN}/api/comments?writeUpSlug=${writeUpSlug}`,
+    `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/comments?writeUpSlug=${writeUpSlug}`,
     fetcher
   );
 

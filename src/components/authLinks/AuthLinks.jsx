@@ -11,7 +11,9 @@ export default function AuthLinks() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`${process.env.WEB_DOMAIN}/api/user`);
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/user`
+        );
 
         if (response.ok) {
           const userData = await response.json();

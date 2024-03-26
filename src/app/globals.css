@@ -51,6 +51,15 @@ body {
   font-size: 24px;
 }
 
+@media screen and (max-width: 768px) {
+  .quill > .ql-container > .ql-editor.ql-blank::before {
+    font-size: 14px;
+  }
+  .quill > .ql-container > .ql-editor {
+    font-size: 14px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

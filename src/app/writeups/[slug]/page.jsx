@@ -5,9 +5,12 @@ import Markdown from "markdown-to-jsx";
 import Comments from "@/components/comments/Comments";
 import extractDate from "@/utils/extractDate";
 const getData = async (slug) => {
-  const res = await fetch(`${process.env.WEB_DOMAIN}/api/writeups/${slug}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/writeups/${slug}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed");
@@ -22,36 +25,40 @@ const SinglePage = async ({ params }) => {
   const data = await getData(slug);
 
   return (
-    <div className=" lg:pt-64 pt-52">
+    <div className=" lg:pt-64 md:pt-52 pt-40">
       {/* Writeup Header */}
       <div className=" min-h-[60vh] flex lg:flex-row flex-col pb-10 lg:gap-10 border-b">
         <div className="lg:h-full   flex flex-col justify-around  lg:w-1/2 lg:pr-20 lg:py-10">
           {/* Title and Desc */}
-          <h1 className="2xl:text-8xl lg:text-6xl md:text-8xl sm:text-6xl text-5xl md:text-left text-center font-bold">
+          <h1 className="2xl:text-8xl lg:text-6xl md:text-8xl sm:text-6xl text-5xl text-left  font-bold">
             {data?.title}
           </h1>
-          <div className="line-clamp-3 text-2xl font-light mt-10 md:text-left text-center">
+          <div className="line-clamp-3 text-2xl font-light mt-10 text-left">
             <Markdown>{data?.desc}</Markdown>
           </div>
 
           {/* Author Info */}
-          <div className="flex  items-center  lg:mt-20 mt-10">
-            {data?.user?.image && (
-              <div className="w-20 h-20 relative">
-                <Image
-                  className="rounded-full"
-                  src={data.user.image}
-                  alt={`Image of ${data.user.name}`}
-                  fill
-                  sizes="100px"
-                />
+          <div className="flex flex-col gap-4  items-start  lg:mt-20 mt-10">
+            <div className="flex">
+              {data?.user?.image && (
+                <div className="md:w-20 md:h-20 w-14 h-14 relative">
+                  <Image
+                    className="rounded-full"
+                    src={data.user.image}
+                    alt={`Image of ${data.user.name}`}
+                    fill
+                    sizes="100px"
+                  />
+                </div>
+              )}
+              <div className="ml-4 flex flex-col">
+                <span className="text-2xl">{data?.user.name}</span>
+                <span className="font-light">
+                  {extractDate(data?.createdAt)}
+                </span>
               </div>
-            )}
-            <div className="ml-4 flex flex-col">
-              <span className="text-2xl">{data?.user.name}</span>
-              <span className="font-light">{extractDate(data?.createdAt)}</span>
             </div>
-            <div className="ml-4 px-6 py-2 bg-gray-700 capitalize rounded-lg">
+            <div className="px-6 py-2 bg-gray-700 capitalize rounded-lg">
               {data?.catSlug}
             </div>
           </div>

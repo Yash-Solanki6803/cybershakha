@@ -129,14 +129,14 @@ const WritePage = () => {
       <input
         type="text"
         placeholder="Title"
-        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white outline-none focus:outline-none"
+        className="bg-transparent border-b-2 px-4 lg:px-10 py-4 text-2xl lg:text-5xl w-full placeholder-white outline-none focus:outline-none"
         maxLength={100}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <div className="relative my-10 flex md:flex-row flex-col gap-4 justify-between items-center">
+      <div className="relative my-10 flex md:flex-row flex-col gap-4 justify-between md:items-center">
         <select
           onChange={(e) => setCatSlug(e.target.value)}
-          className="bg-brand_primary_dark py-4 w-[175px] appearance-none rounded-lg cursor-pointer focus:outline-none text-left px-4 gap-2"
+          className="bg-brand_primary_dark py-4 md:w-[175px] appearance-none rounded-lg cursor-pointer focus:outline-none text-left px-4 gap-2"
         >
           <option defaultValue className="text-center text-xl">
             Category
@@ -171,7 +171,7 @@ const WritePage = () => {
         >
           <label htmlFor="image">Add Image</label>
         </button>
-        <div className=" py-2 absolute top-full translate-x-1/2 right-1/2 md:translate-x-0 md:right-0">
+        <div className="w-full py-2 absolute top-full translate-x-1/2 right-1/2 md:translate-x-0 md:right-0">
           *Image size must be below 500kb
         </div>
       </div>
@@ -180,12 +180,12 @@ const WritePage = () => {
         placeholder="Tell your story..."
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className="bg-transparent w-full h-[50vh] placeholder:text-white placeholder:text-xl text-xl cursor-text p-4 focus:outline-none "
+        className="bg-transparent border-t mt-10 pt-6 w-full h-[50vh] placeholder:text-white lg:placeholder:text-xl lg:text-xl text-sm placeholder:text-sm cursor-text p-4 focus:outline-none "
       ></textarea>
       <button
         disabled={loading || !title || !value || !catSlug}
         onClick={handleSubmit}
-        className="bg-brand_primary_dark disabled:cursor-not-allowed mt-10 py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary"
+        className="bg-brand_primary_dark disabled:cursor-not-allowed w-full lg:w-auto mt-10 py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary"
       >
         Publish
       </button>

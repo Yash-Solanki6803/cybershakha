@@ -125,23 +125,23 @@ const WritePage = () => {
   };
 
   return (
-    <div className="pt-40">
+    <div className="pt-28 md:pt-40">
       {showToast && (
         <Toast title={toastContent.title} type={toastContent.type} />
       )}
       <input
         type="text"
         placeholder="Title"
-        className="bg-transparent border-b-2 px-10 py-4 text-5xl w-full placeholder-white outline-none focus:outline-none"
+        className="bg-transparent border-b-2 px-4 lg:px-10 py-4 text-2xl lg:text-5xl w-full placeholder-white outline-none focus:outline-none"
         maxLength={100}
         onChange={(e) => setTitle(e.target.value)}
         required
       />
 
-      <div className="relative my-10 flex md:flex-row flex-col gap-4 justify-between items-center">
+      <div className="relative my-10 flex md:flex-row flex-col gap-4 justify-between md:items-center">
         <select
           onChange={(e) => setCatSlug(e.target.value)}
-          className="bg-brand_primary_dark py-4 px-4 w-[175px]  appearance-none rounded-lg cursor-pointer focus:outline-none text-left"
+          className="bg-brand_primary_dark py-4 px-4 md:w-[175px]  appearance-none rounded-lg cursor-pointer focus:outline-none text-left"
         >
           <option defaultValue className="text-lg text-center">
             Category
@@ -180,7 +180,7 @@ const WritePage = () => {
         >
           <label htmlFor="image">Add Image</label>
         </button>
-        <div className=" py-2 absolute top-full translate-x-1/2 right-1/2 md:translate-x-0 md:right-0">
+        <div className=" w-full py-2 absolute top-full translate-x-1/2 right-1/2 md:translate-x-0 md:right-0">
           *Image size must be below 500kb
         </div>
       </div>
@@ -189,13 +189,13 @@ const WritePage = () => {
         value={value}
         onChange={setValue}
         placeholder="Tell your story..."
-        className="h-[50vh] "
+        className="h-[50vh] border-t mt-14 pt-6"
       />
 
       <button
         disabled={loading || !title || !value || !catSlug}
         onClick={handleSubmit}
-        className="bg-brand_primary_dark mt-10 py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary disabled:cursor-not-allowed"
+        className="bg-brand_primary_dark w-full lg:w-auto mt-10 py-4 px-10 border border-transparent hover:bg-transparent hover:border-brand_primary appearance-none rounded-lg cursor-pointer focus:outline-none transition-all duration-300 hover:text-brand_primary disabled:cursor-not-allowed"
       >
         Publish
       </button>

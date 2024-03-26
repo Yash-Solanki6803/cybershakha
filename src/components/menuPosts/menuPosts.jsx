@@ -2,7 +2,7 @@ import SingleMenuPost from "../singleMenuPost/SingleMenuPost";
 
 const getData = async ({ itemType, postType }) => {
   const res = await fetch(
-    `${process.env.WEB_DOMAIN}/api/${itemType}/${postType}`,
+    `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/${itemType}/${postType}`,
     {
       cache: "no-store",
     }

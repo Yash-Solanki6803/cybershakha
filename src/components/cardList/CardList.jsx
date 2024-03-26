@@ -8,7 +8,9 @@ import Highlighter from "../highlighter/Highlighter";
 
 const getData = async (page, cat) => {
   const res = await fetch(
-    `${process.env.WEB_DOMAIN}/api/posts?page=${page}&cat=${cat || ""}`,
+    `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/posts?page=${page}&cat=${
+      cat || ""
+    }`,
     {
       cache: "no-store",
     }

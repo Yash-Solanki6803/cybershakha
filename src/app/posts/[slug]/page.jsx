@@ -2,9 +2,12 @@ import Menu from "@/components/Menu/Menu";
 import Image from "next/image";
 
 const getData = async (slug) => {
-  const res = await fetch(`${process.env.WEB_DOMAIN}/api/posts/${slug}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/posts/${slug}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed");
@@ -45,23 +48,27 @@ const SinglePage = async ({ params }) => {
             dangerouslySetInnerHTML={{ __html: data?.desc.substring(0, 150) }}
           />
           {/* Author Info */}
-          <div className="flex  items-center  lg:mt-20 mt-10">
-            {data?.user?.image && (
-              <div className="w-20 h-20 relative">
-                <Image
-                  className="rounded-full"
-                  src={data.user.image}
-                  alt={`Image of ${data.user.name}`}
-                  fill
-                  sizes="100px"
-                />
+          <div className="flex flex-col gap-4 items-start  lg:mt-20 mt-10">
+            <div className="flex">
+              {data?.user?.image && (
+                <div className="md:w-20 md:h-20 w-14 h-14 relative">
+                  <Image
+                    className="rounded-full"
+                    src={data.user.image}
+                    alt={`Image of ${data.user.name}`}
+                    fill
+                    sizes="100px"
+                  />
+                </div>
+              )}
+              <div className="ml-4 flex flex-col">
+                <span className="text-2xl">{data?.user.name}</span>
+                <span className="font-light">
+                  {extractDate(data?.createdAt)}
+                </span>
               </div>
-            )}
-            <div className="ml-4 flex flex-col">
-              <span className="text-2xl">{data?.user.name}</span>
-              <span className="font-light">{extractDate(data?.createdAt)}</span>
             </div>
-            <div className="ml-4 px-6 py-2 bg-gray-700 capitalize rounded-lg">
+            <div className="px-6 py-2 bg-gray-700 capitalize rounded-lg">
               {data?.catSlug}
             </div>
           </div>
