@@ -1,6 +1,6 @@
 import React from "react";
 // import styles from "./menu.module.css";
-import MenuPosts from "../menuPosts/MenuPosts";
+import MenuPosts from "../menuPosts/menuPosts";
 
 const Menu = ({ itemType = "" }) => {
   return (

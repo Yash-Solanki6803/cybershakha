@@ -2,8 +2,6 @@ import CardList from "@/components/cardList/CardList";
 // import styles from "./blogPage.module.css";
 import Menu from "@/components/Menu/Menu";
 import CategoryButton from "@/components/categoryButton/CategoryButton";
-import Image from "next/image";
-import Link from "next/link";
 import { data } from "@/data";
 import TopPost from "@/components/topBlog/TopBlog";
 

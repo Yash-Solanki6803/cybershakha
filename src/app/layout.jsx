@@ -2,7 +2,7 @@ import "./globals.css";
 import AuthProvider from "@/providers/AuthProvider";
 import Navbar from "@/containers/navbar/Navbar";
 import classNames from "classnames";
-import HeroDecors from "@/components/heroDecors/heroDecors";
+import HeroDecors from "@/components/heroDecors/HeroDecors";
 import Footer from "@/containers/footer/Footer";
 import { Titillium_Web } from "next/font/google";
 
