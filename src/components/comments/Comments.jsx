@@ -36,6 +36,7 @@ const Comments = ({ writeUpSlug }) => {
       body: JSON.stringify({ desc, writeUpSlug }),
     });
     mutate();
+    setDesc("");
   };
 
   return (

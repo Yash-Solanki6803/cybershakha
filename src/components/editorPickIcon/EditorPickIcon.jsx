@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { close } from "@/../public/icons";
 import Image from "next/image";
+import useToast from "@/utils/useToast";
 function EditorPickIcon({
   width,
   height,
@@ -11,6 +12,7 @@ function EditorPickIcon({
   className = "",
 }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [showToast, showToastWithTimeout, Toast] = useToast();
   const handleAddToEditorPicks = async () => {
     console.log("Adding to EditorPicks", item.slug);
     try {
@@ -25,6 +27,7 @@ function EditorPickIcon({
       if (response.status === 200) {
         // Handle successful deletion
         console.log("Added to Editor Picks successfully");
+        showToastWithTimeout();
       } else {
         // Handle error
         console.error("Failed to add to Editor Picks");
@@ -100,6 +103,7 @@ function EditorPickIcon({
           </g>
         </svg>
       </span>
+      {showToast && <Toast title="Added to Editor Picks" type="success" />}
       {modalOpen && (
         <div className="border rounded-xl  bg-white w-[350px] h-[200px] p-4 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="flex justify-end">

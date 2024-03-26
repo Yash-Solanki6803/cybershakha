@@ -23,13 +23,13 @@ function HeroComponent() {
         <Button className="mt-10 text-center">Contact us!</Button>
       </div>
       <LockImage />
-      <div className="border h-80 flex lg:hidden mt-10 justify-center relative">
+      <div className=" h-80 flex lg:hidden mt-10 justify-center relative">
         <Image
           src="/images/lock.png"
           alt="Picture of a lock"
           className="object-contain hover:customDropShadow transition-all duration-500 hover:translate-x-6 hover:translate-y-6 hover:scale-105"
           fill
-          sizes="100vw"
+          sizes="90vw"
         />
       </div>
     </section>
