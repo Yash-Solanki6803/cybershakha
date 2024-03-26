@@ -20,7 +20,9 @@ function HeroComponent() {
             in the online world.
           </p>
         </div>
-        <Button className="mt-10 text-center">Contact us!</Button>
+        <Button href="#contact" className="mt-10 text-center">
+          Contact us!
+        </Button>
       </div>
       <LockImage />
       <div className=" h-80 flex lg:hidden mt-10 justify-center relative">

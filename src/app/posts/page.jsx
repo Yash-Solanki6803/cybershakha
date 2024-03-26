@@ -6,7 +6,7 @@ import { data } from "@/data";
 import TopPost from "@/components/topBlog/TopBlog";
 
 const BlogPage = ({ searchParams }) => {
-  const page = parseInt(searchParams.page) || 1;
+  const page = searchParams.page || 1;
   const { cat } = searchParams;
   return (
     <div className="pt-40 w-full">
