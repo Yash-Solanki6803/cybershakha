@@ -20,3 +20,7 @@ export { default as protection } from "./protection.svg";
 export { default as scan_virus } from "./scan-virus.svg";
 export { default as close } from "./close.png";
 export { default as loader } from "./loader.png";
+export { default as casino_cctv } from "./casino-cctv.png";
+export { default as compliant } from "./compliant.png";
+export { default as icon_policemen } from "./icon_policemen.png";
+export { default as response_plan } from "./response-plan.png";

@@ -15,13 +15,12 @@ function BlogSection() {
       id="blog"
       className="mt-24 flex lg:flex-row flex-col xl:gap-14 lg:gap-10 gap-32 min-h-screen relative "
     >
-      <div className=" xl:w-[45%] lg:w-2/5 ">
+      <div className=" xl:w-[45%]  lg:w-2/5 relative">
         <Image
-          className="object-cover w-full lg:h-full rounded-tr-[300px] rounded-bl-[100px] hover:shadow-2xl hover:shadow-slate-600 transition-all duration-300"
+          className="object-cover rounded-tr-[300px] rounded-bl-[100px] hover:shadow-2xl hover:shadow-slate-600 transition-all duration-300"
           alt="Image of a person working on a laptop"
-          src="/images/person_working.png"
-          width={500}
-          height={500}
+          src="/images/blog_section_bg.jpg"
+          fill
         />
       </div>
       <div className=" xl:w-[55%] lg:w-3/5">

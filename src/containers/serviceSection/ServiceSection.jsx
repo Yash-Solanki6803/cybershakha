@@ -1,27 +1,8 @@
 import ServiceCard from "../../framerComponents/serviceCard/ServiceCard";
-import { icon_eye, icon_lock, icon_time } from "../../../public/icons";
+import { casino_cctv, icon_lock, response_plan } from "../../../public/icons";
 import Link from "next/link";
-
-const defaultServices = [
-  {
-    src: icon_lock,
-    title: "Cyber security Assessment ",
-    description:
-      "Identify and mitigate vulnerabilities in your digital infrastructure with our comprehensive penetration testing services.",
-  },
-  {
-    src: icon_eye,
-    title: "Intrusion Detection and Prevention",
-    description:
-      "Ensure the robustness of your digital security with our comprehensive security audits and assessments.",
-  },
-  {
-    src: icon_time,
-    title: "Incident Response and Recovery",
-    description:
-      "Empower your team with the knowledge and skills to navigate the digital landscape securely.",
-  },
-];
+import { data } from "@/data";
+const { defaultServices } = data;
 
 function ServiceSection({ services = defaultServices }) {
   return (
