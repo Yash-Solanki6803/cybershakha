@@ -17,6 +17,7 @@ function MatrixImage() {
           alt="Picture of a matrix"
           className="object-cover rounded-lg"
           fill
+          sizes="500px"
         />
       </div>
     </motion.div>

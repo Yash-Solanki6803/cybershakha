@@ -1,9 +1,6 @@
 import Image from "next/image";
-// import styles from "./card.module.css";
 import Link from "next/link";
 import classNames from "classnames";
-import DeleteIcon from "../deleteIcon/DeleteIcon";
-import EditIcon from "../editIcon/EditIcon";
 import CardActions from "../cardActions/CardActions";
 import Markdown from "markdown-to-jsx";
 const WriteUpCard = ({ item, isInverted = false }) => {
@@ -15,14 +12,20 @@ const WriteUpCard = ({ item, isInverted = false }) => {
       })}
     >
       {item.img && (
-        <div>
-          <Link href={`/writeups/${item.slug}`}>
+        <div className="md:w-3/5 aspect-video w-full">
+          <Link
+            href={`/writeups/${item.slug}`}
+            className="block w-full h-full relative"
+          >
             <Image
-              className="w-[550px] aspect-video object-cover rounded-tl-[15%] rounded-br-[15%] shadow-md hover:shadow-white transition-all duration-150"
+              className="  object-cover rounded-tl-[15%] rounded-br-[15%] shadow-md hover:shadow-white transition-all duration-150"
               src={item.img}
-              alt=""
-              width={1000}
-              height={700}
+              alt={`Image for ${item.title}`}
+              fill
+              placeholder="blur"
+              blurDataURL={item.img}
+              priority={false}
+              sizes="(min-width:600px)50vw,100vw"
             />
           </Link>
         </div>
@@ -40,8 +43,6 @@ const WriteUpCard = ({ item, isInverted = false }) => {
           >
             <h1>{item.title}</h1>
           </Link>
-          {/* <p className={styles.desc}>{item.desc.substring(0, 60)}</p> */}
-          {/* <p>{item.desc.substring(0, 60)}</p> */}
           <div className="line-clamp-1">
             <Markdown>{item?.desc}</Markdown>
           </div>

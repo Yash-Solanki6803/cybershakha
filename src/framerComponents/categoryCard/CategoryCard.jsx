@@ -25,6 +25,7 @@ function CategoryCard({ src, title, desc, delay }) {
             alt={`Icon for ${title} category`}
             src={src}
             fill
+            sizes="100px"
           />
         </div>
         <h2 className="sm:mt-0 mt-4 md:text-2xl  text-xl font-semibold">

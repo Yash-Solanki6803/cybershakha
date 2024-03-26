@@ -37,13 +37,13 @@ const SinglePage = async ({ params }) => {
           {/* Author Info */}
           <div className="flex  items-center  lg:mt-20 mt-10">
             {data?.user?.image && (
-              <div>
+              <div className="w-20 h-20 relative">
                 <Image
                   className="rounded-full"
                   src={data.user.image}
                   alt={`Image of ${data.user.name}`}
-                  width={75}
-                  height={75}
+                  fill
+                  sizes="100px"
                 />
               </div>
             )}
@@ -58,13 +58,13 @@ const SinglePage = async ({ params }) => {
         </div>
         {/* IMG */}
         {data.img && (
-          <div className=" h-full flex flex-col items-start lg:w-1/2  lg:mt-0 mt-10">
+          <div className=" h-full aspect-video relative flex flex-col items-start lg:w-1/2  lg:mt-0 mt-10">
             <Image
               src={data?.img}
               alt={`Image of ${data?.title}`}
-              className="w-full aspect-video object-cover shadow-2xl hover:shadow-white  rounded-tl-[15%] rounded-br-[15%] transition-all duration-500 ease-in-out"
-              width={500}
-              height={500}
+              className="object-cover shadow-2xl hover:shadow-white  rounded-tl-[15%] rounded-br-[15%] transition-all duration-500 ease-in-out"
+              fill
+              sizes="(min-width:1024px)50vw,100vw"
             />
           </div>
         )}

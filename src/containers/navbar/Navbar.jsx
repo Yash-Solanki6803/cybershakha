@@ -3,7 +3,8 @@ import AuthLinks from "../../components/authLinks/AuthLinks";
 import Navlink from "../../components/navLink/NavLink";
 import HamburIcon from "@/components/hamburgurIcon/HamburIcon";
 import classNames from "classnames";
-
+import Link from "next/link";
+import Image from "next/image";
 const Navbar = () => {
   return (
     <nav
@@ -12,9 +13,20 @@ const Navbar = () => {
       )}
     >
       {/* Company Name */}
-      <div className=" md:text-4xl text-3xl font-semibold ">
-        Cyber <span className="text-brand_primary">Shakha</span>
-      </div>
+      <Link href="/" className="cursor-pointer w-fit flex items-center gap-2 ">
+        <div className="h-20 w-28 relative md:flex hidden">
+          <Image
+            src="/assets/newLogo.png"
+            alt="logo"
+            fill
+            sizes="120px"
+            className="rounded-full object-contain"
+          />
+        </div>
+        <div className="w-full md:text-4xl text-3xl font-semibold flex">
+          Cyber <span className="text-brand_primary">Shakha</span>
+        </div>
+      </Link>
       {/* nav links */}
       <div className="bg-glass p-3 rounded-[3rem]  justify-around gap-9 xl:flex hidden">
         <Navlink href="/">Home</Navlink>

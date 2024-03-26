@@ -15,12 +15,13 @@ function BlogSection() {
       id="blog"
       className="mt-24 flex lg:flex-row flex-col xl:gap-14 lg:gap-10 gap-32 min-h-screen relative "
     >
-      <div className=" xl:w-[45%]  lg:w-2/5 relative">
+      <div className=" xl:w-[45%]  lg:w-2/5 lg:flex hidden relative">
         <Image
           className="object-cover rounded-tr-[300px] rounded-bl-[100px] hover:shadow-2xl hover:shadow-slate-600 transition-all duration-300"
           alt="Image of a person working on a laptop"
           src="/images/blog_section_bg.jpg"
           fill
+          sizes="100vh"
         />
       </div>
       <div className=" xl:w-[55%] lg:w-3/5">

@@ -26,6 +26,7 @@ function Testimonial({
             src={image}
             alt="Picture of the client"
             fill
+            sizes="100px"
             className="rounded-full object-contain"
           />
         </div>

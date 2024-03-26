@@ -7,20 +7,29 @@ import CardActions from "../cardActions/CardActions";
 const Card = ({ item, isInverted = false }) => {
   return (
     <div
-      className={classNames(" flex flex-col  gap-10 my-10", {
-        "md:flex-row-reverse": isInverted,
-        "md:flex-row": !isInverted,
-      })}
+      className={classNames(
+        "pt-10 border-t sm:border-none flex flex-col  gap-10 my-10",
+        {
+          "sm:flex-row-reverse": isInverted,
+          "sm:flex-row": !isInverted,
+        }
+      )}
     >
       {item.img && (
-        <div>
-          <Link href={`/posts/${item.slug}`}>
+        <div className="md:w-3/5 aspect-video w-full">
+          <Link
+            href={`/posts/${item.slug}`}
+            className="block w-full h-full relative"
+          >
             <Image
-              className="w-[550px] aspect-video object-cover rounded-tl-[15%] rounded-br-[15%] shadow-md hover:shadow-white transition-all duration-150"
+              className=" object-cover rounded-tl-[15%] rounded-br-[15%] shadow-md hover:shadow-white transition-all duration-200"
               src={item.img}
               alt={`Image for ${item.title}`}
-              width={1000}
-              height={700}
+              fill
+              placeholder="blur"
+              blurDataURL={item.img}
+              priority={false}
+              sizes="(min-width:600px)50vw,100vw"
             />
           </Link>
         </div>
@@ -35,7 +44,7 @@ const Card = ({ item, isInverted = false }) => {
           </div>
           <Link
             href={`/posts/${item.slug}`}
-            className="text-xl font-semibold py-5 block w-1/2 cursor-pointer hover:text-brand_primary_dark  transition-all duration-300"
+            className=" text-xl font-semibold py-5 block md:w-1/2 cursor-pointer hover:text-brand_primary_dark  transition-all duration-300"
           >
             <h1>{item.title}</h1>
           </Link>

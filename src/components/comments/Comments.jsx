@@ -44,7 +44,7 @@ const Comments = ({ writeUpSlug }) => {
       {status === "authenticated" ? (
         <div className=" flex">
           <textarea
-            className="text-black md:text-xl rounded-tl-3xl rounded-bl-3xl p-2 w-full outline-none focus:outline-none"
+            className="text-black md:text-xl rounded-tl-3xl rounded-bl-3xl py-2 px-4 w-full outline-none focus:outline-none"
             placeholder="Write a comment..."
             maxLength={200}
             onChange={(e) => setDesc(e.target.value)}

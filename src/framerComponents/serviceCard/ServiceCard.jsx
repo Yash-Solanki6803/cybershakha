@@ -18,8 +18,8 @@ function ServiceCard({ src, title, description, delay }) {
             className="object-contain animate-pulse "
             src={src}
             alt="icon"
-            width={30}
-            height={30}
+            fill
+            sizes="40px"
           />
         </div>
       </div>

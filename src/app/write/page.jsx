@@ -133,7 +133,7 @@ const WritePage = () => {
         maxLength={100}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <div className=" my-10 flex md:flex-row flex-col gap-4 justify-between items-center">
+      <div className="relative my-10 flex md:flex-row flex-col gap-4 justify-between items-center">
         <select
           onChange={(e) => setCatSlug(e.target.value)}
           className="bg-brand_primary_dark py-4 w-[175px] appearance-none rounded-lg cursor-pointer focus:outline-none text-left px-4 gap-2"
@@ -171,6 +171,9 @@ const WritePage = () => {
         >
           <label htmlFor="image">Add Image</label>
         </button>
+        <div className=" py-2 absolute top-full translate-x-1/2 right-1/2 md:translate-x-0 md:right-0">
+          *Image size must be below 500kb
+        </div>
       </div>
 
       <textarea

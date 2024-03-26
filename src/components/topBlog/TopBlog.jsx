@@ -17,14 +17,19 @@ async function TopPost({ itemType = "posts" }) {
   const TopPost = posts[0];
   return (
     <div className=" h-full flex flex-col items-start lg:w-1/2 mt-10">
-      <Image
-        src={TopPost?.img || "/images/typing.png"}
-        alt="Image of the Top Post picked by the Editor"
-        className="w-full aspect-video object-cover shadow-2xl hover:shadow-white  rounded-tl-[15%] rounded-br-[15%] transition-all duration-500 ease-in-out"
-        width={500}
-        height={500}
-      />
-      <h3 className="mt-10 xl:text-4xl lg:text-3xl text-xl">
+      <div className=" w-full aspect-video relative">
+        <Image
+          src={TopPost?.img || "/images/typing.png"}
+          alt="Image of the Top Post picked by the Editor"
+          className="  object-cover shadow-2xl hover:shadow-white  rounded-tl-[15%] rounded-br-[15%] transition-all duration-500 ease-in-out"
+          fill
+          priority={false}
+          placeholder="blur"
+          blurDataURL={TopPost?.img || "/images/typing.png"}
+          sizes="(min-width:1024px)50vw,100vw"
+        />
+      </div>
+      <h3 className="mt-10 xl:text-4xl lg:text-3xl text-xl font-semibold">
         {TopPost?.title ||
           "Lorem ipsum dolor sit amet alim consectetur adipisicing elit."}
       </h3>
