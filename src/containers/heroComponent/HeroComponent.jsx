@@ -32,6 +32,7 @@ function HeroComponent() {
           className="object-contain hover:customDropShadow transition-all duration-500 hover:translate-x-6 hover:translate-y-6 hover:scale-105"
           fill
           sizes="90vw"
+          priority
         />
       </div>
     </section>

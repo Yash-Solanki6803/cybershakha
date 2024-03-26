@@ -37,7 +37,7 @@ const PostEditPage = ({ params }) => {
     const fetchPost = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/posts/${slug}`
+          `${process.env.WEB_DOMAIN}/api/posts/${slug}`
         );
 
         if (response.ok) {

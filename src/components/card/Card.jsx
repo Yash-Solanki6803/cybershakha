@@ -44,20 +44,19 @@ const Card = ({ item, isInverted = false }) => {
           </div>
           <Link
             href={`/posts/${item.slug}`}
-            className=" text-xl font-semibold py-5 block md:w-1/2 cursor-pointer hover:text-brand_primary_dark  transition-all duration-300"
+            className="line-clamp-3 md:text-3xl text-xl font-semibold py-5 block md:w-1/2 cursor-pointer hover:text-brand_primary_dark  transition-all duration-300"
           >
-            <h1>{item.title}</h1>
+            <h1>{item.title || "This Blog has no title"}</h1>
           </Link>
-          {/* <p className={styles.desc}>{item.desc.substring(0, 60)}</p> */}
-          <div
+          {/* <div
             dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 60) }}
-          />
+          /> */}
         </article>
         <Link
           href={`/posts/${item.slug}`}
-          className="cursor-pointer border-b-2 border-transparent hover:border-white transition-all duration-300"
+          className="cursor-pointer border-b-2 border-transparent hover:border-white underline transition-all duration-300"
         >
-          Read More
+          Read full article
         </Link>
       </div>
     </div>

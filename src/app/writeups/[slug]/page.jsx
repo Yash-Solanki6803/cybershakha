@@ -5,12 +5,9 @@ import Markdown from "markdown-to-jsx";
 import Comments from "@/components/comments/Comments";
 import extractDate from "@/utils/extractDate";
 const getData = async (slug) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/writeups/${slug}`,
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.WEB_DOMAIN}/api/writeups/${slug}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed");

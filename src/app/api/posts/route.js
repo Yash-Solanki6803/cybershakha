@@ -10,7 +10,6 @@ export const GET = async (req) => {
   if (page <= 0) page = 1;
 
   const POST_PER_PAGE = 5;
-  console.log(page, cat, POST_PER_PAGE * (page - 1));
 
   const query = {
     take: POST_PER_PAGE,

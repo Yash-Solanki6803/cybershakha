@@ -8,12 +8,15 @@ export default function AuthLinks() {
   const { status, data } = useSession();
   const { user, setUser } = useUser();
 
+  const fetchURL =
+    process.env.NEXT_PUBLIC_MODE == "dev"
+      ? "http://localhost:3000"
+      : "https://cybershakha.vercel.app";
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/user`
-        );
+        const response = await fetch(`${fetchURL}/api/user`);
 
         if (response.ok) {
           const userData = await response.json();

@@ -2,12 +2,9 @@ import Menu from "@/components/Menu/Menu";
 import Image from "next/image";
 
 const getData = async (slug) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/posts/${slug}`,
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.WEB_DOMAIN}/api/posts/${slug}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed");

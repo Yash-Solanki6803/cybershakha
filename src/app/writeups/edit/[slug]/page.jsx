@@ -36,7 +36,7 @@ const WriteEditPage = ({ params }) => {
     const fetchWriteUp = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/api/writeups/${slug}`
+          `${process.env.WEB_DOMAIN}/api/writeups/${slug}`
         );
 
         if (response.ok) {
