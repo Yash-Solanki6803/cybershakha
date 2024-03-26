@@ -17,13 +17,15 @@ function TypingImage() {
       }}
       viewport={{ amount: 0.8, margin: "400px" }}
     >
-      <Image
-        src="/images/typing.png"
-        alt="Picture of a matrix"
-        className="w-full h-full object-cover rounded-lg"
-        width={400}
-        height={400}
-      />
+      <div className="relative w-full h-full">
+        <Image
+          src="/images/typing.png"
+          alt="Picture of a matrix"
+          className="w-full h-full object-cover rounded-lg"
+          width={400}
+          height={400}
+        />
+      </div>
     </motion.div>
   );
 }

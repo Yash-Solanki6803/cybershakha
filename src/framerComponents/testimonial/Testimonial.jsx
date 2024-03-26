@@ -21,13 +21,12 @@ function Testimonial({
         <p>{text}</p>
       </div>
       <div className="h-1/2  flex justify-start items-center gap-4">
-        <div className=" flex items-center rounded-full h-[80px] w-[80px]  ">
+        <div className=" flex items-center rounded-full h-[80px] w-[80px] relative ">
           <Image
             src={image}
             alt="Picture of the client"
-            width={100}
-            height={100}
-            className="rounded-full"
+            fill
+            className="rounded-full object-contain"
           />
         </div>
 
